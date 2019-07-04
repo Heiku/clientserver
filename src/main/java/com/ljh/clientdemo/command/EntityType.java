@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.common;
+package com.ljh.clientdemo.command;
 
 public enum EntityType {
     Knight(100, "骑士"),

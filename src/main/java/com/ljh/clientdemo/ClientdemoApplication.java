@@ -1,6 +1,7 @@
 package com.ljh.clientdemo;
 
 import com.ljh.clientdemo.service.RequestService;
+import com.ljh.clientdemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -14,9 +15,18 @@ public class ClientdemoApplication {
 
     private static RequestService requestService;
 
+    private static UserService userService;
+
+    /**
+     * 采用构造方法的方式将 对象注入到容器中
+     *
+     * @param requestService
+     * @param userService
+     */
     @Autowired
-    public ClientdemoApplication(RequestService requestService){
+    public ClientdemoApplication(RequestService requestService, UserService userService){
         ClientdemoApplication.requestService = requestService;
+        ClientdemoApplication.userService = userService;
     }
 
     public static void main(String[] args) {
@@ -45,7 +55,7 @@ public class ClientdemoApplication {
                     requestService.getAOI();
                     break;
                 case STATE:
-                    requestService.getUserState();
+                    userService.getUserState();
                     break;
                 case EXIT:
                     requestService.exit();
@@ -67,7 +77,7 @@ public class ClientdemoApplication {
         CharSequence loginChar = LOGIN;
         if (cmd.contains(loginChar)){
             String accountInfo = cmd.replace(loginChar, "").trim();
-            requestService.login(accountInfo);
+            userService.login(accountInfo);
         }
     }
 
@@ -75,7 +85,7 @@ public class ClientdemoApplication {
         CharSequence registerChar = REGISTER;
         if (cmd.contains(registerChar)){
             String accoutnInfo = cmd.replace(registerChar, "").trim();
-            requestService.register(accoutnInfo);
+            userService.register(accoutnInfo);
         }
     }
 

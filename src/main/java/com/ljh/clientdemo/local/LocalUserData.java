@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.client;
+package com.ljh.clientdemo.local;
 
 public class LocalUserData {
 

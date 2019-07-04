@@ -1,9 +1,8 @@
 package com.ljh.clientdemo.client;
 
-import com.ljh.clientdemo.command.CommandType;
-import com.ljh.clientdemo.common.EntityType;
+import com.ljh.clientdemo.command.EntityType;
+import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.proto.MessageBase;
-import com.ljh.clientdemo.proto.UserInfoProto;
 import com.ljh.clientdemo.utils.IOUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;

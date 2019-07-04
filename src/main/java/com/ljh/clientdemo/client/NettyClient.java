@@ -1,6 +1,6 @@
 package com.ljh.clientdemo.client;
 
-import com.ljh.clientdemo.proto.MessageBase;
+import com.google.protobuf.MessageLite;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.ChannelFuture;
 import io.netty.channel.ChannelFutureListener;
@@ -31,10 +31,9 @@ public class NettyClient {
     private SocketChannel socketChannel;
 
 
-    public void sendMsg(MessageBase.Message message){
-        socketChannel.writeAndFlush(message);
+    public void sendMsg(MessageLite messageLite){
+        socketChannel.writeAndFlush(messageLite);
     }
-
 
     @PostConstruct
     public void start() {
