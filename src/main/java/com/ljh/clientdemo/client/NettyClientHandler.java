@@ -3,10 +3,13 @@ package com.ljh.clientdemo.client;
 import com.ljh.clientdemo.command.CommandType;
 import com.ljh.clientdemo.common.EntityType;
 import com.ljh.clientdemo.proto.MessageBase;
+import com.ljh.clientdemo.proto.UserInfoProto;
 import com.ljh.clientdemo.utils.IOUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+
+import java.util.UUID;
 
 
 @Slf4j
@@ -76,14 +79,21 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
      * @param ctx
      * @throws Exception
      */
-    /*@Override
+    @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
         MessageBase.Message msg = MessageBase.Message.newBuilder()
                 .setCmd(MessageBase.Message.CommandType.USER_STATE)
                 .setRequestId(UUID.randomUUID().toString())
-                .setContent("")
+                .setContent("nonononon")
                 .build();
 
-        ctx.writeAndFlush(msg);
-    }*/
+
+        /*UserInfoProto.RequestUserInfo msg = UserInfoProto.RequestUserInfo.newBuilder()
+                .setRequestId(UUID.randomUUID().toString())
+                .setContent("来自requestUserInfo的爱")
+                .setUsername("heiku")
+                .setPassword("sise").build();*/
+
+        ctx.channel().writeAndFlush(msg);
+    }
 }

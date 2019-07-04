@@ -1,0 +1,15 @@
+syntax = "proto3";
+
+option java_package = "com.ljh.clientdemo.proto";
+option java_outer_classname = "UserInfoProto";
+
+// protoc --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/UserInfo.proto
+
+
+message RequestUserInfo{
+
+    string requestId = 1;
+    string content = 2;
+    string username = 3;
+    string password = 4;
+}
