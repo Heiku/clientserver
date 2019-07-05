@@ -2,15 +2,27 @@ package com.ljh.clientdemo.codec;
 
 import com.google.protobuf.MessageLite;
 import com.ljh.clientdemo.proto.MessageBase;
-import com.ljh.clientdemo.proto.UserInfoProto;
+import com.ljh.clientdemo.proto.MsgEntityInfoProto;
+import com.ljh.clientdemo.proto.MsgSiteInfoProto;
+import com.ljh.clientdemo.proto.MsgUserInfoProto;
 
 import java.lang.reflect.Constructor;
 
 public enum MessageType {
 
     MESSAGE_PROTO(0x01, MessageBase.Message.class),
-    USERINFO_PROTO(0x02, UserInfoProto.RequestUserInfo.class),
-    RESPONSE_USERINFO_PROTO(0x03, UserInfoProto.ResponseUserInfo.class),
+
+    // user
+    REQUEST_USERINFO_PROTO(0x02, MsgUserInfoProto.RequestUserInfo.class),
+    RESPONSE_USERINFO_PROTO(0x03, MsgUserInfoProto.ResponseUserInfo.class),
+
+    // site
+    REQUEST_SITE_PROTO(0x04, MsgSiteInfoProto.RequestSiteInfo.class),
+    RESPONSE_SITE_PROTO(0x05, MsgSiteInfoProto.ResponseSiteInfo.class),
+
+    // entity
+    REQUEST_ENTITY_PROTO(0x06,MsgEntityInfoProto.RequestEntityInfo.class),
+    RESPONSE_ENTITY_PROTO(0x07, MsgEntityInfoProto.ResponseEntityInfo.class)
     ;
 
 

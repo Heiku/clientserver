@@ -30,7 +30,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
             // 向服务端发送心跳包
             MessageBase.Message heartbeat = MessageBase.Message.newBuilder()
                     .setRequestId(UUID.randomUUID().toString())
-                    .setCmd(MessageBase.Message.CommandType.HEARTBEAT_REQUEST)
+                    .setType(MessageBase.RequestType.HEARTBEAT_REQUEST)
                     .setContent("heartbeat")
                     .build();
 

@@ -26,4 +26,9 @@ public class CommandType {
 
     // 退出
     public static final String EXIT = "exit";
+
+
+
+    // test
+    public static final String UID = "uid";
 }

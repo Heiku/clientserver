@@ -1,7 +1,11 @@
 package com.ljh.clientdemo;
 
+import com.ljh.clientdemo.local.LocalUserData;
+import com.ljh.clientdemo.service.EntityService;
 import com.ljh.clientdemo.service.RequestService;
+import com.ljh.clientdemo.service.SiteService;
 import com.ljh.clientdemo.service.UserService;
+import com.ljh.clientdemo.utils.SpringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -13,21 +17,34 @@ import static com.ljh.clientdemo.command.CommandType.*;
 @SpringBootApplication
 public class ClientdemoApplication {
 
+    @Autowired
     private static RequestService requestService;
 
+    @Autowired
+    private static SiteService siteService;
+
+    @Autowired
     private static UserService userService;
 
-    /**
-     * 采用构造方法的方式将 对象注入到容器中
-     *
-     * @param requestService
-     * @param userService
-     */
     @Autowired
-    public ClientdemoApplication(RequestService requestService, UserService userService){
+    private static EntityService entityService;
+
+
+    @Autowired
+    public ClientdemoApplication(RequestService requestService, UserService userService, EntityService entityService,
+                                 SiteService siteService){
         ClientdemoApplication.requestService = requestService;
         ClientdemoApplication.userService = userService;
+        ClientdemoApplication.entityService = entityService;
+        ClientdemoApplication.siteService = siteService;
     }
+/*
+    static {
+        requestService = SpringUtil.getBean(RequestService.class);
+        siteService = SpringUtil.getBean(SiteService.class);
+        userService = SpringUtil.getBean(UserService.class);
+        entityService = SpringUtil.getBean(EntityService.class);
+    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(ClientdemoApplication.class, args);
@@ -43,22 +60,22 @@ public class ClientdemoApplication {
             cmd = cmd.toLowerCase().trim();
             switch (cmd){
                 case SITE:
-                    requestService.getSite();
+                    siteService.getSite();
                     break;
                 case DATE:
                     requestService.getDate();
                     break;
-                case NOW:
-                    requestService.getDate();
-                    break;
                 case AOI:
-                    requestService.getAOI();
+                    entityService.getAOI();
                     break;
                 case STATE:
                     userService.getUserState();
                     break;
                 case EXIT:
-                    requestService.exit();
+                    userService.exit();
+                    break;
+                case UID:
+                    System.out.println(LocalUserData.USERID);
                     break;
             }
         }
@@ -68,7 +85,7 @@ public class ClientdemoApplication {
         CharSequence moveChar = MOVE;
         if (cmd.contains(moveChar)){
             String destination = cmd.replace(moveChar, "").trim();
-            requestService.move(destination);
+            siteService.move(destination);
         }
     }
 
@@ -84,8 +101,8 @@ public class ClientdemoApplication {
     private static void registerInterceptor(String cmd){
         CharSequence registerChar = REGISTER;
         if (cmd.contains(registerChar)){
-            String accoutnInfo = cmd.replace(registerChar, "").trim();
-            userService.register(accoutnInfo);
+            String accountInfo = cmd.replace(registerChar, "").trim();
+            userService.register(accountInfo);
         }
     }
 

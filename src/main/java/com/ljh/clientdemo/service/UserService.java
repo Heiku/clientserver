@@ -3,7 +3,7 @@ package com.ljh.clientdemo.service;
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.client.NettyClient;
-import com.ljh.clientdemo.proto.UserInfoProto;
+import com.ljh.clientdemo.proto.MsgUserInfoProto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -25,7 +25,8 @@ public class UserService {
             return;
         }
 
-        UserInfoProto.RequestUserInfo requestUserInfo = UserInfoProto.RequestUserInfo.newBuilder()
+        MsgUserInfoProto.RequestUserInfo requestUserInfo = MsgUserInfoProto.RequestUserInfo.newBuilder()
+                .setType(MsgUserInfoProto.RequestType.STATE)
                 .setRequestId(UUID.randomUUID().toString())
                 .setUserId(userId)
                 .build();
@@ -49,14 +50,14 @@ public class UserService {
         String username = strArr[0];
         String password = strArr[1];
 
-        UserInfoProto.RequestUserInfo registerUserInfo = UserInfoProto.RequestUserInfo.newBuilder()
+        MsgUserInfoProto.RequestUserInfo requestUserInfo = MsgUserInfoProto.RequestUserInfo.newBuilder()
                 .setRequestId(UUID.randomUUID().toString())
-                .setType(UserInfoProto.RequestType.LOGIN)
+                .setType(MsgUserInfoProto.RequestType.LOGIN)
                 .setUsername(username)
                 .setPassword(password)
                 .build();
 
-        nettyClient.sendMsg(registerUserInfo);
+        nettyClient.sendMsg(requestUserInfo);
 
     }
 
@@ -76,14 +77,33 @@ public class UserService {
         String username = strArr[0];
         String password = strArr[1];
 
-        UserInfoProto.RequestUserInfo registerUserInfo = UserInfoProto.RequestUserInfo.newBuilder()
+        MsgUserInfoProto.RequestUserInfo requestUserInfo = MsgUserInfoProto.RequestUserInfo.newBuilder()
                 .setRequestId(UUID.randomUUID().toString())
-                .setType(UserInfoProto.RequestType.REGISTER)
+                .setType(MsgUserInfoProto.RequestType.REGISTER)
                 .setUsername(username)
                 .setPassword(password)
                 .build();
 
-        nettyClient.sendMsg(registerUserInfo);
+        nettyClient.sendMsg(requestUserInfo);
+    }
+
+    /**
+     * 发送退出系统exit指令
+     */
+    public void exit(){
+        long userId = LocalUserData.USERID;
+        if (userId <= 0){
+            System.out.println("当前用户尚未登录服务器，请进行登录操作!\n 具体登录指令：login 账号,密码");
+            return;
+        }
+
+        MsgUserInfoProto.RequestUserInfo requestUserInfo = MsgUserInfoProto.RequestUserInfo.newBuilder()
+                .setRequestId(UUID.randomUUID().toString())
+                .setUserId(userId)
+                .setType(MsgUserInfoProto.RequestType.EXIT)
+                .build();
+
+        nettyClient.sendMsg(requestUserInfo);
     }
 
 }
