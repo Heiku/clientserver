@@ -1,5 +1,6 @@
 package com.ljh.clientdemo.client;
 
+import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.proto.MessageBase;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
@@ -31,6 +32,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
             MessageBase.Message heartbeat = MessageBase.Message.newBuilder()
                     .setRequestId(UUID.randomUUID().toString())
                     .setType(MessageBase.RequestType.HEARTBEAT_REQUEST)
+                    .setUserId(LocalUserData.USERID)
                     .setContent("heartbeat")
                     .build();
 
