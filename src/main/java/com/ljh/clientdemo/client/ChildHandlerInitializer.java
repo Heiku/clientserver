@@ -1,6 +1,7 @@
 package com.ljh.clientdemo.client;
 
 import com.ljh.clientdemo.client.handler.EntityInfoClientHandler;
+import com.ljh.clientdemo.client.handler.ServerIdleStateHandler;
 import com.ljh.clientdemo.client.handler.SiteClientHandler;
 import com.ljh.clientdemo.client.handler.UserInfoClientHandler;
 import com.ljh.clientdemo.codec.CustomProtobufDecoder;
@@ -23,6 +24,8 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
                 .addLast(new ProtobufEncoder())
 
                 .addLast(new NettyClientHandler());*/
+
+        pipeline.addLast(new ServerIdleStateHandler());
 
         // 采用自定义的编码解码器
         pipeline.addLast("decoder",new CustomProtobufDecoder());

@@ -4,7 +4,6 @@ option java_package = "com.ljh.clientdemo.proto";
 option java_outer_classname = "MessageBase";
 
 // protoc --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/Message.proto
-// TODO: 过期协议，等待删除
 
 enum RequestType{
     NORMAL = 0;             // 常规业务消息

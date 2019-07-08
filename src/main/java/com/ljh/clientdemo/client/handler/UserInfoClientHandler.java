@@ -22,7 +22,7 @@ public class UserInfoClientHandler extends SimpleChannelInboundHandler<MsgUserIn
             // 存放当前用户的userId
             LocalUserData.setUserId(responseUserInfo.getUserId());
 
-            // TODO:写入token记录，为了用户断线重连可以获取到最新的userId
+            IOUtils.writeToken(responseUserInfo.getToken());
 
             // 如果是选择角色的 response，直接数据结果
         } else if (responseUserInfo.getType().equals(MsgUserInfoProto.RequestType.STATE)){
