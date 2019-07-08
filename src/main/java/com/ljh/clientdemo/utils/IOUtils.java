@@ -3,7 +3,6 @@ package com.ljh.clientdemo.utils;
 import java.io.*;
 
 public class IOUtils {
-    private int iil;
 
     private static final String TOKEN_FILE = "src/main/resources/data/token.txt";
 

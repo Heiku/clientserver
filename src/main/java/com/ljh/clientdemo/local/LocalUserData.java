@@ -9,4 +9,7 @@ public class LocalUserData {
         USERID = userId;
     }
 
+    public static long getUserId(){
+        return USERID;
+    }
 }

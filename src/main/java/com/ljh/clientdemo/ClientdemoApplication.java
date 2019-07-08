@@ -1,109 +1,60 @@
 package com.ljh.clientdemo;
 
+import com.ljh.clientdemo.client.NettyClient;
+import com.ljh.clientdemo.console.ConsoleCommandManager;
+import com.ljh.clientdemo.console.impl.LoginConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
-import com.ljh.clientdemo.service.EntityService;
-import com.ljh.clientdemo.service.RequestService;
-import com.ljh.clientdemo.service.SiteService;
-import com.ljh.clientdemo.service.UserService;
-import com.ljh.clientdemo.utils.SpringUtil;
+import io.netty.channel.Channel;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.util.Scanner;
 
-import static com.ljh.clientdemo.command.CommandType.*;
-
 @SpringBootApplication
 public class ClientdemoApplication {
 
-    @Autowired
-    private static RequestService requestService;
+    private static NettyClient nettyClient;
 
     @Autowired
-    private static SiteService siteService;
-
-    @Autowired
-    private static UserService userService;
-
-    @Autowired
-    private static EntityService entityService;
-
-
-    @Autowired
-    public ClientdemoApplication(RequestService requestService, UserService userService, EntityService entityService,
-                                 SiteService siteService){
-        ClientdemoApplication.requestService = requestService;
-        ClientdemoApplication.userService = userService;
-        ClientdemoApplication.entityService = entityService;
-        ClientdemoApplication.siteService = siteService;
+    public ClientdemoApplication(NettyClient nettyClient){
+        ClientdemoApplication.nettyClient = nettyClient;
     }
-/*
-    static {
-        requestService = SpringUtil.getBean(RequestService.class);
-        siteService = SpringUtil.getBean(SiteService.class);
-        userService = SpringUtil.getBean(UserService.class);
-        entityService = SpringUtil.getBean(EntityService.class);
-    }*/
 
     public static void main(String[] args) {
         SpringApplication.run(ClientdemoApplication.class, args);
 
-        Scanner sc = new Scanner(System.in);
-        while (sc.hasNext()){
-            String cmd = sc.nextLine();
+        // 启动读取命令线程，开始读取用户指令
+        startConsoleThread(nettyClient.getChannel());
+        }
 
-            moveInterceptor(cmd);
-            loginInterceptor(cmd);
-            registerInterceptor(cmd);
 
-            cmd = cmd.toLowerCase().trim();
-            switch (cmd){
-                case SITE:
-                    siteService.getSite();
-                    break;
-                case DATE:
-                    requestService.getDate();
-                    break;
-                case AOI:
-                    entityService.getAOI();
-                    break;
-                case STATE:
-                    userService.getUserState();
-                    break;
-                case EXIT:
-                    userService.exit();
-                    break;
-                case UID:
-                    System.out.println(LocalUserData.USERID);
-                    break;
+    /**
+     * 开启一个控制台线程
+     *
+     * @param channel
+     */
+    private static void startConsoleThread(Channel channel){
+        ConsoleCommandManager consoleCommandManager = new ConsoleCommandManager();
+        LoginConsoleCommand loginConsoleCommand = new LoginConsoleCommand();
+        Scanner scanner = new Scanner(System.in);
+
+        new Thread(() -> {
+            while (!Thread.interrupted()) {
+
+                // 判断channel中是否属于登录状态
+                // TODO: 后期可以将 token 信息写入到 channel 的attr中
+                if (LocalUserData.getUserId() <= 0) {
+
+                    // 如果为检测到channel中的session，那么调用登录控制台
+                    loginConsoleCommand.exec(scanner, channel);
+                } else {
+
+                    // 否则，根据指令调用相应的控制台
+                    consoleCommandManager.exec(scanner, channel);
+                }
+
             }
-        }
+        }).start();
     }
-
-    private static void moveInterceptor(String cmd) {
-        CharSequence moveChar = MOVE;
-        if (cmd.contains(moveChar)){
-            String destination = cmd.replace(moveChar, "").trim();
-            siteService.move(destination);
-        }
-    }
-
-
-    private static void loginInterceptor(String cmd){
-        CharSequence loginChar = LOGIN;
-        if (cmd.contains(loginChar)){
-            String accountInfo = cmd.replace(loginChar, "").trim();
-            userService.login(accountInfo);
-        }
-    }
-
-    private static void registerInterceptor(String cmd){
-        CharSequence registerChar = REGISTER;
-        if (cmd.contains(registerChar)){
-            String accountInfo = cmd.replace(registerChar, "").trim();
-            userService.register(accountInfo);
-        }
-    }
-
 }

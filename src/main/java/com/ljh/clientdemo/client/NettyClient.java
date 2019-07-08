@@ -1,11 +1,11 @@
 package com.ljh.clientdemo.client;
 
 import com.google.protobuf.MessageLite;
+import com.ljh.clientdemo.console.ConsoleCommandManager;
+import com.ljh.clientdemo.console.impl.LoginConsoleCommand;
+import com.ljh.clientdemo.local.LocalUserData;
 import io.netty.bootstrap.Bootstrap;
-import io.netty.channel.ChannelFuture;
-import io.netty.channel.ChannelFutureListener;
-import io.netty.channel.ChannelOption;
-import io.netty.channel.EventLoopGroup;
+import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
+import java.util.Date;
+import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 @Component
@@ -27,6 +29,8 @@ public class NettyClient {
 
     @Value("${netty.host}")
     private String host;
+
+    private static final int MAX_RETRY = 5;
 
     private SocketChannel socketChannel;
 
@@ -61,5 +65,9 @@ public class NettyClient {
         });
 
         socketChannel = (SocketChannel) channelFuture.channel();
+    }
+
+    public Channel getChannel(){
+        return socketChannel;
     }
 }
