@@ -23,6 +23,8 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("move", new MoveConsoleCommand());
         consoleCommandMap.put("state", new StateConsoleCommand());
         consoleCommandMap.put("aoi", new AoiConsoleCommand());
+
+        consoleCommandMap.put("talk", new TalkEntityConsoleCommand());
         consoleCommandMap.put("exit", new ExitConsoleCommand());
     }
 

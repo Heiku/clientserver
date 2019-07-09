@@ -2,7 +2,7 @@ package com.ljh.clientdemo.console.impl;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
-import com.ljh.clientdemo.proto.MsgEntityInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgEntityInfoProto;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;

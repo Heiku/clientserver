@@ -2,7 +2,7 @@ package com.ljh.clientdemo.console.impl;
 
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.console.ConsoleCommand;
-import com.ljh.clientdemo.proto.MsgUserInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgUserInfoProto;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;

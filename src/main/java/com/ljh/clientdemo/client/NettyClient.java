@@ -1,49 +1,42 @@
 package com.ljh.clientdemo.client;
 
 import com.google.protobuf.MessageLite;
-import com.ljh.clientdemo.console.ConsoleCommandManager;
-import com.ljh.clientdemo.console.impl.LoginConsoleCommand;
-import com.ljh.clientdemo.local.LocalUserData;
 import io.netty.bootstrap.Bootstrap;
 import io.netty.channel.*;
 import io.netty.channel.nio.NioEventLoopGroup;
-import io.netty.channel.socket.SocketChannel;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 import javax.annotation.PostConstruct;
-import java.util.Date;
-import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
 
 @Component
 @Slf4j
 public class NettyClient {
+    // 最大重试次数
+    private static final int MAX_RETRY = 5;
 
-    private EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
-
+    // 连接server的端口
     @Value("${netty.port}")
     private int port;
 
+    // host
     @Value("${netty.host}")
     private String host;
 
-    private static final int MAX_RETRY = 5;
+    private EventLoopGroup eventLoopGroup = new NioEventLoopGroup();
 
-    private SocketChannel socketChannel;
+    private Channel channel;
 
-
-    public void sendMsg(MessageLite messageLite){
-        socketChannel.writeAndFlush(messageLite);
-    }
+    private Bootstrap bootstrap;
 
     @PostConstruct
     public void start() {
-        Bootstrap b = new Bootstrap();
+        bootstrap = new Bootstrap();
 
-        b.group(eventLoopGroup)
+        bootstrap.group(eventLoopGroup)
                 .channel(NioSocketChannel.class)
                 .remoteAddress(host, port)
 
@@ -52,22 +45,41 @@ public class NettyClient {
                 .option(ChannelOption.TCP_NODELAY, true)
                 .handler(new ChildHandlerInitializer());
 
-        ChannelFuture channelFuture = b.connect();
+        // 连接操作，包括重连
+        doConnect();
+    }
 
-        // 客户端断线重连逻辑
-        channelFuture.addListener((ChannelFutureListener) future -> {
-            if (future.isSuccess()){
-                log.info("连接 Netty 服务器成功");
-            }else {
-                log.info("连接失败，进行断线重连");
-                future.channel().eventLoop().schedule(() -> start(), 10, TimeUnit.SECONDS);
+
+    protected void doConnect(){
+        if (channel != null && channel.isActive()){
+            return;
+        }
+
+        ChannelFuture channelFuture = bootstrap.connect();
+
+        channelFuture.addListener(new ChannelFutureListener() {
+            @Override
+            public void operationComplete(ChannelFuture channelFuture) throws Exception {
+                if (channelFuture.isSuccess()){
+                    channel = channelFuture.channel();
+
+                    log.info("Connect to Server Successfully!");
+                }else {
+                    log.error("Failed to connect to server, try connect after 5s");
+
+                    channelFuture.channel().eventLoop().schedule(() -> {
+                        doConnect();
+                    }, 5, TimeUnit.SECONDS);
+                }
             }
         });
-
-        socketChannel = (SocketChannel) channelFuture.channel();
     }
 
     public Channel getChannel(){
-        return socketChannel;
+        return channel;
+    }
+
+    public void sendMsg(MessageLite messageLite){
+        channel.writeAndFlush(messageLite);
     }
 }

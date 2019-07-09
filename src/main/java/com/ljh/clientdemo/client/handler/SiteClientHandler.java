@@ -1,6 +1,6 @@
 package com.ljh.clientdemo.client.handler;
 
-import com.ljh.clientdemo.proto.MsgSiteInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgSiteInfoProto;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

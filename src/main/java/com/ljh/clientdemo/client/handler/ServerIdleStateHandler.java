@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ServerIdleStateHandler extends IdleStateHandler {
 
-    private static final int READER_IDLE_TIME = 15;
+    private static final int READER_IDLE_TIME = 60;
 
     public ServerIdleStateHandler(){
         super(READER_IDLE_TIME, 0, 0, TimeUnit.SECONDS);
@@ -19,15 +19,8 @@ public class ServerIdleStateHandler extends IdleStateHandler {
 
     @Override
     protected void channelIdle(ChannelHandlerContext ctx, IdleStateEvent evt) throws Exception {
-        System.out.println(READER_IDLE_TIME + "秒内未读到数据，关闭连接，不！其实还没关闭");
-
-        //ctx.channel().close();
+        System.out.println(READER_IDLE_TIME + "秒内未读到数据，关闭连接.");
+        ctx.channel().close();
     }
 
-    @Override
-    public void userEventTriggered(ChannelHandlerContext ctx, Object evt) throws Exception {
-        System.out.println("没有数据读取，触发userEvent");
-
-        //super.userEventTriggered(ctx, evt);
-    }
 }

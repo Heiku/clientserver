@@ -3,7 +3,7 @@ package com.ljh.clientdemo.console.impl;
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
-import com.ljh.clientdemo.proto.MsgSiteInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgSiteInfoProto;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;

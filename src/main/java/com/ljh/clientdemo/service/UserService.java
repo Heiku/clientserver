@@ -3,7 +3,7 @@ package com.ljh.clientdemo.service;
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.client.NettyClient;
-import com.ljh.clientdemo.proto.MsgUserInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgUserInfoProto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

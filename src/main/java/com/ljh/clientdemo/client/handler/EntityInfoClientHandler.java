@@ -2,9 +2,9 @@ package com.ljh.clientdemo.client.handler;
 
 import com.ljh.clientdemo.command.EntityType;
 import com.ljh.clientdemo.command.ResultCode;
-import com.ljh.clientdemo.proto.EntityProto;
-import com.ljh.clientdemo.proto.MsgEntityInfoProto;
-import com.ljh.clientdemo.proto.RoleProto;
+import com.ljh.clientdemo.proto.protoc.EntityProto;
+import com.ljh.clientdemo.proto.protoc.MsgEntityInfoProto;
+import com.ljh.clientdemo.proto.protoc.RoleProto;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 

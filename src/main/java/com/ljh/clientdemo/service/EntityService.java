@@ -2,7 +2,7 @@ package com.ljh.clientdemo.service;
 
 import com.ljh.clientdemo.client.NettyClient;
 import com.ljh.clientdemo.local.LocalUserData;
-import com.ljh.clientdemo.proto.MsgEntityInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgEntityInfoProto;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

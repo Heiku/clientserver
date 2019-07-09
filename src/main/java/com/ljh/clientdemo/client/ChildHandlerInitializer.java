@@ -16,16 +16,9 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
     protected void initChannel(SocketChannel socketChannel) throws Exception {
         ChannelPipeline pipeline = socketChannel.pipeline();
 
-        /*pipeline.addLast(new IdleStateHandler(0, 10, 0))
-
-                .addLast(new ProtobufVarint32FrameDecoder())
-                .addLast(new ProtobufDecoder(MessageBase.Message.getDefaultInstance()))
-                .addLast(new ProtobufVarint32LengthFieldPrepender())
-                .addLast(new ProtobufEncoder())
-
-                .addLast(new NettyClientHandler());*/
-
+        // 空闲消息处理器
         pipeline.addLast(new ServerIdleStateHandler());
+        //pipeline.addLast(new HeartbeatHandler());
 
         // 采用自定义的编码解码器
         pipeline.addLast("decoder",new CustomProtobufDecoder());

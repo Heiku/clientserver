@@ -2,7 +2,7 @@ package com.ljh.clientdemo.console.impl;
 
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.console.ConsoleCommand;
-import com.ljh.clientdemo.proto.MsgUserInfoProto;
+import com.ljh.clientdemo.proto.protoc.MsgUserInfoProto;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;
@@ -12,6 +12,7 @@ public class LoginConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
+
         // 读取输入
         System.out.println("输入用户名，密码登录：(username,password)");
         String accountInfo = scanner.next();

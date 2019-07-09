@@ -1,7 +1,7 @@
 package com.ljh.clientdemo.service;
 
 import com.ljh.clientdemo.client.NettyClient;
-import com.ljh.clientdemo.proto.MessageBase;
+import com.ljh.clientdemo.proto.protoc.MessageBase;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

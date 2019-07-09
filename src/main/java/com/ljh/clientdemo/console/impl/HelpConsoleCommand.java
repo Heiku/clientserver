@@ -22,6 +22,8 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t aoi：获取当前场景下的所有实体信息\n");
 
         sb.append("\t date：获取当前的游戏时间\n");
+        sb.append("\t talk：与实体 npc 进行对话\n");
+
         sb.append("\t exit：退出当前游戏\n");
 
         System.out.println(sb.toString());

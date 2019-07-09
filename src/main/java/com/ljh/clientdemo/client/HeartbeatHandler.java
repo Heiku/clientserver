@@ -1,7 +1,7 @@
 package com.ljh.clientdemo.client;
 
 import com.ljh.clientdemo.local.LocalUserData;
-import com.ljh.clientdemo.proto.MessageBase;
+import com.ljh.clientdemo.proto.protoc.MessageBase;
 import io.netty.channel.ChannelFutureListener;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.ChannelInboundHandlerAdapter;
@@ -47,7 +47,7 @@ public class HeartbeatHandler extends ChannelInboundHandlerAdapter {
         EventLoop eventLoop = ctx.channel().eventLoop();
         eventLoop.schedule(() -> nettyClient.start(), 10L, TimeUnit.SECONDS);
 
-        super.channelInactive(ctx);
+        //super.channelInactive(ctx);
     }
 
 

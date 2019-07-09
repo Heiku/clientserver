@@ -3,7 +3,7 @@ syntax = "proto3";
 import "Role.proto";
 import "Entity.proto";
 
-option java_package = "com.ljh.clientdemo.proto";
+option java_package = "com.ljh.clientdemo.proto.protoc";
 option java_outer_classname = "MsgEntityInfoProto";
 
 // protoc --proto_path=src/main/java/com/ljh/clientdemo/proto/ --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/MsgEntityInfo.proto

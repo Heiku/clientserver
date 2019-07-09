@@ -2,7 +2,7 @@ syntax = "proto3";
 
 // protoc --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/Role.proto
 
-option java_package = "com.ljh.clientdemo.proto";
+option java_package = "com.ljh.clientdemo.proto.protoc";
 option java_outer_classname = "RoleProto";
 
 message Role{

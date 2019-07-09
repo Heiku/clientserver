@@ -1,7 +1,7 @@
 package com.ljh.clientdemo.console.impl;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
-import com.ljh.clientdemo.proto.MessageBase;
+import com.ljh.clientdemo.proto.protoc.MessageBase;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;

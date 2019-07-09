@@ -1,13 +1,15 @@
 package com.ljh.clientdemo.client;
 
-import com.ljh.clientdemo.proto.MessageBase;
+import com.ljh.clientdemo.local.LocalUserData;
+import com.ljh.clientdemo.proto.protoc.MessageBase;
+import com.ljh.clientdemo.utils.SessionUtil;
+import com.ljh.clientdemo.utils.SpringUtil;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.stereotype.Component;
 
-import java.util.UUID;
-
-
+@Component
 @Slf4j
 public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.Message> {
 
@@ -35,8 +37,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        cause.printStackTrace();
-        ctx.close();
+        System.out.println("server close, waiting retry");
     }
 
 
@@ -48,5 +49,17 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
      */
     @Override
     public void channelActive(ChannelHandlerContext ctx) throws Exception {
+
+        // 正常连接，包括断线重连
+        // 将 userId 组装到 channel中
+        SessionUtil.bindSession(LocalUserData.getUserId(), ctx.channel());
+    }
+
+
+    @Override
+    public void channelInactive(ChannelHandlerContext ctx) throws Exception {
+        super.channelInactive(ctx);
+
+        SpringUtil.getBean(NettyClient.class).doConnect();
     }
 }
