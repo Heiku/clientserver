@@ -2,6 +2,7 @@ package com.ljh.clientdemo.client.handler;
 
 import com.ljh.clientdemo.command.EntityType;
 import com.ljh.clientdemo.command.ResultCode;
+import com.ljh.clientdemo.proto.protoc.CreepProto;
 import com.ljh.clientdemo.proto.protoc.EntityProto;
 import com.ljh.clientdemo.proto.protoc.MsgEntityInfoProto;
 import com.ljh.clientdemo.proto.protoc.RoleProto;
@@ -10,7 +11,7 @@ import io.netty.channel.SimpleChannelInboundHandler;
 
 import java.util.List;
 
-public class EntityInfoClientHandler extends SimpleChannelInboundHandler<MsgEntityInfoProto.ResponseEntityInfo> {
+public class EntityInfoHandler extends SimpleChannelInboundHandler<MsgEntityInfoProto.ResponseEntityInfo> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, MsgEntityInfoProto.ResponseEntityInfo responseEntityInfo) throws Exception {
@@ -35,13 +36,14 @@ public class EntityInfoClientHandler extends SimpleChannelInboundHandler<MsgEnti
 
         }
 
-        sb.append("\n");
 
+        sb.append("\n");
         // 获取实体npc信息
         List<EntityProto.Entity> entityList = responseEntityInfo.getEntityList();
         if (entityList.isEmpty()){
             sb.append("当前场景下暂无角色信息");
         }
+        sb.append("npc：\n");
         for (EntityProto.Entity entity : entityList){
             String name = entity.getName();
             String type = EntityType.getContentFromCode(entity.getType()).getContent();
@@ -50,6 +52,27 @@ public class EntityInfoClientHandler extends SimpleChannelInboundHandler<MsgEnti
 
             sb.append("名称：" + name + " 职业：" + type + " 等级：" + level + " 状态：" + alive + " \n");
         }
+
+
+        sb.append("\n");
+        // 获取野怪信息
+        List<CreepProto.Creep> creepList = responseEntityInfo.getCreepList();
+        if (creepList.isEmpty()){
+            sb.append("当前场景下暂无野怪信息");
+        }
+        sb.append("野怪：\n");
+        for (CreepProto.Creep creep : creepList){
+            String name = creep.getName();
+            String type = EntityType.getContentFromCode(creep.getType()).getContent();
+            String level = String.valueOf(creep.getLevel());
+            String num = String.valueOf(creep.getNum());
+            String hp = String.valueOf(creep.getHp());
+            String damage = String.valueOf(creep.getDamage());
+
+            sb.append("名称：" + name + " 种类：" + type + " 数量：" + num + " 等级：" + level + " 血量：" + hp + " 攻击力：" + damage);
+        }
+
+
         System.out.println(sb.toString());
     }
 }

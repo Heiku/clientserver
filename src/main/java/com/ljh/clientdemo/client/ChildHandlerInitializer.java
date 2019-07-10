@@ -1,9 +1,6 @@
 package com.ljh.clientdemo.client;
 
-import com.ljh.clientdemo.client.handler.EntityInfoClientHandler;
-import com.ljh.clientdemo.client.handler.ServerIdleStateHandler;
-import com.ljh.clientdemo.client.handler.SiteClientHandler;
-import com.ljh.clientdemo.client.handler.UserInfoClientHandler;
+import com.ljh.clientdemo.client.handler.*;
 import com.ljh.clientdemo.codec.CustomProtobufDecoder;
 import com.ljh.clientdemo.codec.CustomProtobufEncoder;
 import io.netty.channel.ChannelInitializer;
@@ -25,8 +22,9 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast("encoder",new CustomProtobufEncoder());
 
         pipeline.addLast(new NettyClientHandler());
-        pipeline.addLast(new UserInfoClientHandler());
-        pipeline.addLast(new SiteClientHandler());
-        pipeline.addLast(new EntityInfoClientHandler());
+        pipeline.addLast(new UserInfoHandler());
+        pipeline.addLast(new SiteHandler());
+        pipeline.addLast(new EntityInfoHandler());
+        pipeline.addLast(new TalkEntityHandler());
     }
 }

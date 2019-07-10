@@ -8,7 +8,7 @@ import com.ljh.clientdemo.utils.IOUtils;
 import io.netty.channel.ChannelHandlerContext;
 import io.netty.channel.SimpleChannelInboundHandler;
 
-public class UserInfoClientHandler extends SimpleChannelInboundHandler<MsgUserInfoProto.ResponseUserInfo> {
+public class UserInfoHandler extends SimpleChannelInboundHandler<MsgUserInfoProto.ResponseUserInfo> {
 
     @Override
     protected void channelRead0(ChannelHandlerContext channelHandlerContext, MsgUserInfoProto.ResponseUserInfo responseUserInfo) throws Exception {

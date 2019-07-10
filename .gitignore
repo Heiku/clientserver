@@ -33,3 +33,4 @@ build/
 .mvn/
 mvnw.cmd
 mvnw
+src/main/java/com/ljh/gamedemo/
