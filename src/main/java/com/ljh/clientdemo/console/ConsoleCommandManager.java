@@ -25,7 +25,12 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("aoi", new AoiConsoleCommand());
 
         consoleCommandMap.put("talk", new TalkEntityConsoleCommand());
+
+        consoleCommandMap.put("spell", new SpellConsoleCommand());
+        consoleCommandMap.put("learn", new LearnSpellConsoleCommand());
+
         consoleCommandMap.put("exit", new ExitConsoleCommand());
+
     }
 
     @Override
