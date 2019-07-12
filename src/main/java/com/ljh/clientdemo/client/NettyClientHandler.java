@@ -37,7 +37,7 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
      */
     @Override
     public void exceptionCaught(ChannelHandlerContext ctx, Throwable cause) throws Exception {
-        System.out.println("server close, waiting retry");
+        log.error("server close, waiting retry");
     }
 
 

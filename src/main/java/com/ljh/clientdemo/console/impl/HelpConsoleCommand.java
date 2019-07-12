@@ -24,6 +24,9 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t date：获取当前的游戏时间\n");
         sb.append("\t talk：与实体 npc 进行对话\n");
 
+        sb.append("\t spell：查看当前技能和所有可学习的技能\n");
+        sb.append("\t learn：学习技能\n");
+
         sb.append("\t exit：退出当前游戏\n");
 
         System.out.println(sb.toString());
