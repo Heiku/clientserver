@@ -29,6 +29,13 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("spell", new SpellConsoleCommand());
         consoleCommandMap.put("learn", new LearnSpellConsoleCommand());
 
+        // attack
+        consoleCommandMap.put("attack", new AttackCreepConsoleCommand());
+        consoleCommandMap.put("sp", new AttackCreepSpellConsoleCommand());
+
+        consoleCommandMap.put("bag", new BagAllConsoleCommand());
+        consoleCommandMap.put("use", new UseItemConsoleCommand());
+
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 
     }

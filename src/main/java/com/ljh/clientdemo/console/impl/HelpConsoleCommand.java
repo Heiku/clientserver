@@ -27,6 +27,12 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t spell：查看当前技能和所有可学习的技能\n");
         sb.append("\t learn：学习技能\n");
 
+        sb.append("\t attack: 攻击野怪（自动使用普通攻击技能）\n");
+        sb.append("\t sp: 使用技能攻击野怪\n");
+
+        sb.append("\t bag: 查看当前背包中的所有道具\n");
+        sb.append("\t use: 使用背包中的道具\n");
+
         sb.append("\t exit：退出当前游戏\n");
 
         System.out.println(sb.toString());

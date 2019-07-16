@@ -17,6 +17,7 @@ public class AoiConsoleCommand implements ConsoleCommand {
                 .setType(MsgEntityInfoProto.RequestType.AOI)
                 .setRequestId(UUID.randomUUID().toString())
                 .setUserId(LocalUserData.USERID)
+
                 .build();
 
         channel.writeAndFlush(requestEntityInfo);

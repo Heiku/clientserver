@@ -23,11 +23,19 @@ public enum MessageType {
 
     // talk entity
     REQUEST_TALK_ENTITY(0x08, TalkEntityProto.RequestTalkEntity.class),
-    RESPONSE_TALK_ENTITY(0x09, TalkEntityProto.ResponseTalkEntity.class),
+    RESPONSE_TALK_ENTITY(0x09,TalkEntityProto.ResponseTalkEntity.class),
 
     // spell
-    REQUEST_SPELL(0x10, MsgSpellProto.RequestSpell.class),
-    RESPONSE_SPELL(0x11, MsgSpellProto.ResponseSpell.class)
+    REQUEST_SPELL(0xa, MsgSpellProto.RequestSpell.class),
+    RESPONSE_SPELL(0xb, MsgSpellProto.ResponseSpell.class),
+
+    // attack spell
+    REQUEST_ATTACK_SPELL(0xc, MsgAttackCreepProto.RequestAttackCreep.class),
+    RESPONSE_ATTACK_SPELL(0xd, MsgAttackCreepProto.ResponseAttackCreep.class),
+
+    // items
+    REQUEST_ITEMS(0xe, MsgItemProto.RequestItem.class),
+    RESPONSE_ITEMS(0xf, MsgItemProto.ResponseItem.class)
     ;
 
 
