@@ -28,3 +28,4 @@ public class AttackCreepSpellConsoleCommand implements ConsoleCommand {
     }
 }
 // sp 10022
+// sp 10021

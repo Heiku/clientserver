@@ -36,6 +36,11 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("bag", new BagAllConsoleCommand());
         consoleCommandMap.put("use", new UseItemConsoleCommand());
 
+        consoleCommandMap.put("equip", new EquipAllConsoleCommand());
+        consoleCommandMap.put("put", new EquipPutConsoleCommand());
+        consoleCommandMap.put("takeoff", new EquipTakeOffConsoleCommand());
+        consoleCommandMap.put("fix", new EquipFixConsoleCommand());
+
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 
     }
