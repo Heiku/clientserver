@@ -61,5 +61,6 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
         super.channelInactive(ctx);
 
         SpringUtil.getBean(NettyClient.class).doConnect();
+        SessionUtil.bindSession(LocalUserData.getUserId(), ctx.channel());
     }
 }

@@ -18,9 +18,14 @@ public class AttackCreepSpellConsoleCommand implements ConsoleCommand {
         System.out.println("请输入你要施放的技能id：");
 
         Integer spellId = scanner.nextInt();
+
+        System.out.println("请输入你要攻击的野怪：");
+        Integer creepId = scanner.nextInt();
+
         MsgAttackCreepProto.RequestAttackCreep request = MsgAttackCreepProto.RequestAttackCreep.newBuilder()
                 .setType(MsgAttackCreepProto.RequestType.SPELL)
                 .setSpellId(spellId)
+                .setCreepId(creepId)
                 .setUserId(LocalUserData.getUserId())
                 .build();
 
@@ -29,3 +34,4 @@ public class AttackCreepSpellConsoleCommand implements ConsoleCommand {
 }
 // sp 10022
 // sp 10021
+// sp 10021 10001
