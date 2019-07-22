@@ -23,7 +23,7 @@ public class ItemHandler extends SimpleChannelInboundHandler<MsgItemProto.Respon
             StringBuilder sb = new StringBuilder();
             sb.append("当前背包中的物品如下：\n");
             for (ItemsProto.Items i : items){
-                sb.append("id: " + i.getItemsId() + " 名称: " + i.getName() + " 数量: " + i.getNum() + " 描述: " + i.getDesc() + " \n");
+                sb.append("id: " + i.getItemsId() + " 名称: " + i.getName() + "恢复时间：" + i.getSec() + " 数量: " +  i.getNum() + " 描述: " + i.getDesc() + " \n");
             }
 
             System.out.println(sb.toString());
