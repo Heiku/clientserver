@@ -29,6 +29,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
 
         sb.append("\t attack: 攻击野怪（自动使用普通攻击技能）\n");
         sb.append("\t sp: 使用技能攻击野怪\n");
+        sb.append("\t sps: 使用技能buff自己\n");
 
         sb.append("\t bag: 查看当前背包中的所有道具\n");
         sb.append("\t use: 使用背包中的道具\n");

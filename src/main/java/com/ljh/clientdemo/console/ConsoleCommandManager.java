@@ -32,6 +32,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // attack
         consoleCommandMap.put("attack", new AttackCreepConsoleCommand());
         consoleCommandMap.put("sp", new AttackCreepSpellConsoleCommand());
+        consoleCommandMap.put("sps", new SpellToSaveConsoleCommand());
 
         consoleCommandMap.put("bag", new BagAllConsoleCommand());
         consoleCommandMap.put("use", new UseItemConsoleCommand());
