@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ServerIdleStateHandler extends IdleStateHandler {
 
-    private static final int READER_IDLE_TIME = 60;
+    private static final int READER_IDLE_TIME = 60 * 5;
 
     public ServerIdleStateHandler(){
         super(READER_IDLE_TIME, 0, 0, TimeUnit.SECONDS);
