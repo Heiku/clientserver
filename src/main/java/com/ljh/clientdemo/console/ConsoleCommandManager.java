@@ -30,17 +30,27 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("learn", new LearnSpellConsoleCommand());
 
         // attack
-        consoleCommandMap.put("attack", new AttackCreepConsoleCommand());
-        consoleCommandMap.put("sp", new AttackCreepSpellConsoleCommand());
+        consoleCommandMap.put("attackc", new AttackCreepConsoleCommand());
+        consoleCommandMap.put("spc", new AttackCreepSpellConsoleCommand());
         consoleCommandMap.put("sps", new SpellToSaveConsoleCommand());
+        consoleCommandMap.put("stopc", new StopAttackCreepConsoleCommand());
 
+        // bag
         consoleCommandMap.put("bag", new BagAllConsoleCommand());
         consoleCommandMap.put("use", new UseItemConsoleCommand());
 
+        // equip
         consoleCommandMap.put("equip", new EquipAllConsoleCommand());
         consoleCommandMap.put("put", new EquipPutConsoleCommand());
         consoleCommandMap.put("takeoff", new EquipTakeOffConsoleCommand());
         consoleCommandMap.put("fix", new EquipFixConsoleCommand());
+
+        // duplicate boss
+        consoleCommandMap.put("duplicate", new DuplicateConsoleCommand());
+        consoleCommandMap.put("enter", new EnterDuplicateConsoleCommand());
+        consoleCommandMap.put("attackb", new EnterDuplicateConsoleCommand());
+        consoleCommandMap.put("spb", new EnterDuplicateConsoleCommand());
+        consoleCommandMap.put("stopb", new EnterDuplicateConsoleCommand());
 
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 

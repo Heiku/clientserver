@@ -35,5 +35,7 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new ItemHandler());
 
         pipeline.addLast(new EquipHandler());
+
+        pipeline.addLast(new DuplicateHandler());
     }
 }

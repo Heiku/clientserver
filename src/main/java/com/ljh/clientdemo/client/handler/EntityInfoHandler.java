@@ -34,7 +34,7 @@ public class EntityInfoHandler extends SimpleChannelInboundHandler<MsgEntityInfo
             String playerAlive = role.getAlive() == 1 ? "存活" : "死亡";
             String hp = String.valueOf(role.getHp());
             String mp = String.valueOf(role.getMp());
-            sb.append("玩家：" + role.getName() + " 职业：" + playerType  + " 血量：" + hp + " 法力值：" + mp + " 等级：" +  playerLevel + " 状态：" + playerAlive + " \n");
+            sb.append("id: " + role.getRoleId() + " 玩家：" + role.getName() + " 职业：" + playerType  + " 血量：" + hp + " 法力值：" + mp + " 等级：" +  playerLevel + " 状态：" + playerAlive + " \n");
 
         }
 

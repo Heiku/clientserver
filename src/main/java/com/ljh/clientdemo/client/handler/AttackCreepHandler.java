@@ -16,16 +16,15 @@ public class AttackCreepHandler extends SimpleChannelInboundHandler<MsgAttackCre
     protected void channelRead0(ChannelHandlerContext ctx, MsgAttackCreepProto.ResponseAttackCreep response) throws Exception {
         System.out.println(response.getContent());
 
-
+        System.out.println("正在受到伤害！");
         RoleProto.Role role = response.getRole();
         if (role != null) {
             System.out.println(role.getName() + "当前的血量为：" + role.getHp());
             System.out.println(role.getName() + "当前的蓝量为：" + role.getMp());
-
         }
 
         CreepProto.Creep creep = response.getCreep();
-        if (creep != null) {
+        if (!creep.getName().equals("")) {
             System.out.println(creep.getName() + " 的当前的血量为：" + creep.getHp());
         }
     }

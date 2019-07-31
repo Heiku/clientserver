@@ -39,7 +39,11 @@ public enum MessageType {
 
     // equip
     REQUEST_EQUIPS(0x10, MsgEquipProto.RequestEquip.class),
-    RESPONSE_EQUIPS(0x11, MsgEquipProto.ResponseEquip.class)
+    RESPONSE_EQUIPS(0x11, MsgEquipProto.ResponseEquip.class),
+
+    // duplicate
+    REQUEST_DUPLICATE(0x12, MsgDuplicateProto.RequestDuplicate.class),
+    RESPONSE_DUPLICATE(0x13, MsgDuplicateProto.ResponseDuplicate.class)
     ;
 
 
