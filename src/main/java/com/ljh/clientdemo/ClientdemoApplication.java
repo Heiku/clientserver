@@ -2,7 +2,7 @@ package com.ljh.clientdemo;
 
 import com.ljh.clientdemo.client.NettyClient;
 import com.ljh.clientdemo.console.ConsoleCommandManager;
-import com.ljh.clientdemo.console.impl.LoginConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.LoginConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;

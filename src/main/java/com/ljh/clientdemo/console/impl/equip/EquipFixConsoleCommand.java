@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.console.impl;
+package com.ljh.clientdemo.console.impl.equip;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
@@ -11,17 +11,17 @@ import java.util.Scanner;
  * @Author: Heiku
  * @Date: 2019/7/17
  */
-public class EquipTakeOffConsoleCommand implements ConsoleCommand {
+public class EquipFixConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要卸下的装备id：");
+        System.out.println("请输入你要修理的装备id：");
 
         long equipId = Long.valueOf(scanner.next());
 
         MsgEquipProto.RequestEquip requestEquip = MsgEquipProto.RequestEquip.newBuilder()
                 .setUserId(LocalUserData.getUserId())
-                .setType(MsgEquipProto.RequestType.TAKEOFF)
+                .setType(MsgEquipProto.RequestType.FIX)
                 .setEquipId(equipId)
                 .build();
 

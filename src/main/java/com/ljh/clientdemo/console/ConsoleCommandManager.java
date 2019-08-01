@@ -1,6 +1,28 @@
 package com.ljh.clientdemo.console;
 
 import com.ljh.clientdemo.console.impl.*;
+import com.ljh.clientdemo.console.impl.creep.AttackCreepConsoleCommand;
+import com.ljh.clientdemo.console.impl.creep.AttackCreepSpellConsoleCommand;
+import com.ljh.clientdemo.console.impl.creep.SpellToSaveConsoleCommand;
+import com.ljh.clientdemo.console.impl.creep.StopAttackCreepConsoleCommand;
+import com.ljh.clientdemo.console.impl.duplicate.*;
+import com.ljh.clientdemo.console.impl.equip.EquipAllConsoleCommand;
+import com.ljh.clientdemo.console.impl.equip.EquipFixConsoleCommand;
+import com.ljh.clientdemo.console.impl.equip.EquipPutConsoleCommand;
+import com.ljh.clientdemo.console.impl.equip.EquipTakeOffConsoleCommand;
+import com.ljh.clientdemo.console.impl.item.BagAllConsoleCommand;
+import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
+import com.ljh.clientdemo.console.impl.others.DateConsoleCommand;
+import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
+import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.StateConsoleCommand;
+import com.ljh.clientdemo.console.impl.others.TalkEntityConsoleCommand;
+import com.ljh.clientdemo.console.impl.spell.LearnSpellConsoleCommand;
+import com.ljh.clientdemo.console.impl.spell.SpellConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.AoiConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.ExitConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.LoginConsoleCommand;
+import com.ljh.clientdemo.console.impl.user.RegisterConsoleCommand;
 import io.netty.channel.Channel;
 
 import java.util.HashMap;
@@ -48,9 +70,10 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // duplicate boss
         consoleCommandMap.put("duplicate", new DuplicateConsoleCommand());
         consoleCommandMap.put("enter", new EnterDuplicateConsoleCommand());
-        consoleCommandMap.put("attackb", new EnterDuplicateConsoleCommand());
-        consoleCommandMap.put("spb", new EnterDuplicateConsoleCommand());
-        consoleCommandMap.put("stopb", new EnterDuplicateConsoleCommand());
+        consoleCommandMap.put("attackb", new AttackBossConsoleCommand());
+        consoleCommandMap.put("spb", new SpellToBossConsoleCommand());
+        consoleCommandMap.put("stopb", new StopDuplicateConsoleCommand());
+        consoleCommandMap.put("leave", new LeaveDuplicateConsoleCommand());
 
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 

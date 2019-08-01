@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.console.impl;
+package com.ljh.clientdemo.console.impl.others;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.proto.protoc.MessageBase;

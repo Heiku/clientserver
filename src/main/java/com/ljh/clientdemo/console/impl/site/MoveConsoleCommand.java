@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.console.impl;
+package com.ljh.clientdemo.console.impl.site;
 
 import com.google.common.base.Strings;
 import com.ljh.clientdemo.console.ConsoleCommand;

@@ -1,4 +1,4 @@
-package com.ljh.clientdemo.console.impl;
+package com.ljh.clientdemo.console.impl.item;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
@@ -10,17 +10,19 @@ import java.util.Scanner;
 /**
  * @Author: Heiku
  * @Date: 2019/7/16
- *
- * 获取背包信息console
  */
-public class BagAllConsoleCommand implements ConsoleCommand {
+public class UseItemConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
+        System.out.println("请输入你要使用的道具id: ");
+
+        long itemsId = scanner.nextLong();
 
         MsgItemProto.RequestItem requestItem = MsgItemProto.RequestItem.newBuilder()
                 .setUserId(LocalUserData.getUserId())
-                .setType(MsgItemProto.RequestType.ALL)
+                .setType(MsgItemProto.RequestType.USE)
+                .setItemsId(itemsId)
                 .build();
 
         channel.writeAndFlush(requestItem);
