@@ -24,7 +24,7 @@ public class DuplicateHandler extends SimpleChannelInboundHandler<MsgDuplicatePr
 
         StringBuilder sb = new StringBuilder();
         if (response.getTypeValue() == MsgDuplicateProto.RequestType.DUPLICATE.getNumber()){
-            if (response.getBossList() != null) {
+            if (response.getBossList() != null && response.getEquipList().isEmpty()) {
                 List<DuplicateProto.Duplicate> duplicates = response.getDuplicateList();
                 duplicates.forEach(d -> {
 
@@ -62,9 +62,11 @@ public class DuplicateHandler extends SimpleChannelInboundHandler<MsgDuplicatePr
         }else if (response.getTypeValue() == MsgDuplicateProto.RequestType.ENTER.getNumber()){
             sb.append(response.getContent() + "\n");
 
-            BossProto.Boss b = response.getBossList().get(0);
-            sb.append("当前需要击杀的 Boss 为： \n");
-            sb.append("\t\t id: " + b.getId() + " name: " + b.getName() + " hp: " + b.getHp());
+            if (response.getBossList() != null && !response.getBossList().isEmpty()) {
+                BossProto.Boss b = response.getBossList().get(0);
+                sb.append("当前需要击杀的 Boss 为： \n");
+                sb.append("\t\t id: " + b.getId() + " name: " + b.getName() + " hp: " + b.getHp());
+            }
         }else if (response.getTypeValue() == MsgDuplicateProto.RequestType.CHALLENGE.getNumber()){
             sb.append(response.getContent() + "\n");
 
@@ -73,7 +75,7 @@ public class DuplicateHandler extends SimpleChannelInboundHandler<MsgDuplicatePr
                 sb.append("当前的 Boss: " + b.getName() + " Hp = ：" + b.getHp() + "\n");
             }
 
-        }else if (response.getTypeValue() == MsgUserInfoProto.RequestType.EXIT.getNumber()){
+        }else if (response.getTypeValue() == MsgDuplicateProto.RequestType.LEAVE.getNumber()){
             sb.append(response.getContent());
         }
 

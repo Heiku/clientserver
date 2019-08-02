@@ -57,6 +57,10 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t stopb: 离开 Boss 的攻击范围\n");
         sb.append("\t leave: 退出副本挑战\n");
 
+        sb.append("商城：\n");
+        sb.append("\t mall: 查看当前的商城信息\n");
+        sb.append("\t buy: 购买商品\n");
+
         sb.append("\n\t exit：退出当前游戏\n");
 
         System.out.println(sb.toString());
