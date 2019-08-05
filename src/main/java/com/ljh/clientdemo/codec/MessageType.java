@@ -43,7 +43,11 @@ public enum MessageType {
 
     // duplicate
     REQUEST_DUPLICATE(0x12, MsgDuplicateProto.RequestDuplicate.class),
-    RESPONSE_DUPLICATE(0x13, MsgDuplicateProto.ResponseDuplicate.class)
+    RESPONSE_DUPLICATE(0x13, MsgDuplicateProto.ResponseDuplicate.class),
+
+    // mall
+    REQUEST_MALL(0x14, MsgMallProto.RequestMall.class),
+    RESPONSE_MALL(0x15, MsgMallProto.ResponseMall.class)
     ;
 
 

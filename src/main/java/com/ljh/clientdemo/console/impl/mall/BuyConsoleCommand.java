@@ -1,6 +1,8 @@
 package com.ljh.clientdemo.console.impl.mall;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
+import com.ljh.clientdemo.local.LocalUserData;
+import com.ljh.clientdemo.proto.protoc.MsgMallProto;
 import io.netty.channel.Channel;
 
 import java.util.Scanner;
@@ -13,6 +15,16 @@ public class BuyConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
+        System.out.println("请输入要购买的商品id：");
 
+        Long cid = scanner.nextLong();
+
+        MsgMallProto.RequestMall request = MsgMallProto.RequestMall.newBuilder()
+                .setUserId(LocalUserData.getUserId())
+                .setCId(cid)
+                .setType(MsgMallProto.RequestType.BUY)
+                .build();
+
+        channel.writeAndFlush(request);
     }
 }

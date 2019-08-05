@@ -12,6 +12,8 @@ import com.ljh.clientdemo.console.impl.equip.EquipPutConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipTakeOffConsoleCommand;
 import com.ljh.clientdemo.console.impl.item.BagAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
+import com.ljh.clientdemo.console.impl.mall.BuyConsoleCommand;
+import com.ljh.clientdemo.console.impl.mall.MallAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.others.DateConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
@@ -74,6 +76,11 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("spb", new SpellToBossConsoleCommand());
         consoleCommandMap.put("stopb", new StopDuplicateConsoleCommand());
         consoleCommandMap.put("leave", new LeaveDuplicateConsoleCommand());
+
+        // mall
+        consoleCommandMap.put("mall", new MallAllConsoleCommand());
+        consoleCommandMap.put("buy", new BuyConsoleCommand());
+
 
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 
