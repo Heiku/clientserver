@@ -1,11 +1,14 @@
 package com.ljh.clientdemo.console;
 
 import com.ljh.clientdemo.console.impl.*;
+import com.ljh.clientdemo.console.impl.chat.ChatGroupConsoleCommand;
+import com.ljh.clientdemo.console.impl.chat.ChatRoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.AttackCreepConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.AttackCreepSpellConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.SpellToSaveConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.StopAttackCreepConsoleCommand;
 import com.ljh.clientdemo.console.impl.duplicate.*;
+import com.ljh.clientdemo.console.impl.email.EmailReceiveConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipFixConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipPutConsoleCommand;
@@ -80,6 +83,13 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // mall
         consoleCommandMap.put("mall", new MallAllConsoleCommand());
         consoleCommandMap.put("buy", new BuyConsoleCommand());
+
+        // chat
+        consoleCommandMap.put("chat", new ChatRoleConsoleCommand());
+        consoleCommandMap.put("chatg", new ChatGroupConsoleCommand());
+
+        // email
+        consoleCommandMap.put("receive", new EmailReceiveConsoleCommand());
 
 
         consoleCommandMap.put("exit", new ExitConsoleCommand());

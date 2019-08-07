@@ -61,6 +61,13 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t mall: 查看当前的商城信息\n");
         sb.append("\t buy: 购买商品\n");
 
+        sb.append("聊天：\n");
+        sb.append("\t chat: 与玩家进行聊天 \n");
+        sb.append("\t chatg: 与全服的玩家进行聊天 \n");
+
+        sb.append("邮件：\n");
+        sb.append("\t receive: 接收邮件 \n");
+
         sb.append("\n\t exit：退出当前游戏\n");
 
         System.out.println(sb.toString());
