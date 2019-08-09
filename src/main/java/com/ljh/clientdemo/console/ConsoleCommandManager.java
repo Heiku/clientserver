@@ -8,6 +8,7 @@ import com.ljh.clientdemo.console.impl.creep.AttackCreepSpellConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.SpellToSaveConsoleCommand;
 import com.ljh.clientdemo.console.impl.creep.StopAttackCreepConsoleCommand;
 import com.ljh.clientdemo.console.impl.duplicate.*;
+import com.ljh.clientdemo.console.impl.email.EmailAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.email.EmailReceiveConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipFixConsoleCommand;
@@ -89,6 +90,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("chatg", new ChatGroupConsoleCommand());
 
         // email
+        consoleCommandMap.put("email", new EmailAllConsoleCommand());
         consoleCommandMap.put("receive", new EmailReceiveConsoleCommand());
 
 

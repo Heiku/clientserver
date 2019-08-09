@@ -31,7 +31,6 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
 
         pipeline.addLast(new SpellHandler());
 
-
         pipeline.addLast(new ItemHandler());
 
         pipeline.addLast(new EquipHandler());
@@ -41,5 +40,9 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new MallHandler());
 
         pipeline.addLast(new ChatHandler());
+
+        pipeline.addLast(new EquipHandler());
+
+        pipeline.addLast(new EmailHandler());
     }
 }

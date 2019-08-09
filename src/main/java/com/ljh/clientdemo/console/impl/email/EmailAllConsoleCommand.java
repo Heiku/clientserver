@@ -9,21 +9,19 @@ import java.util.Scanner;
 
 /**
  * @Author: Heiku
- * @Date: 2019/8/7
+ * @Date: 2019/8/9
+ *
+ * 获取所有邮件信息
  */
-public class EmailReceiveConsoleCommand implements ConsoleCommand {
+public class EmailAllConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要接收的邮件id：");
-        long eid = scanner.nextLong();
-
-        MsgEmailProto.RequestEmail request =  MsgEmailProto.RequestEmail.newBuilder()
+        MsgEmailProto.RequestEmail req = MsgEmailProto.RequestEmail.newBuilder()
                 .setUserId(LocalUserData.getUserId())
-                .setType(MsgEmailProto.RequestType.RECEIVE)
-                .setEid(eid)
+                .setType(MsgEmailProto.RequestType.EMAIL)
                 .build();
 
-        channel.writeAndFlush(request);
+        channel.writeAndFlush(req);
     }
 }

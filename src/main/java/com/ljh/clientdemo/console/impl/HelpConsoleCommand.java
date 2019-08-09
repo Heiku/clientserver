@@ -66,6 +66,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t chatg: 与全服的玩家进行聊天 \n");
 
         sb.append("邮件：\n");
+        sb.append("\t email: 获取邮件列表\n ");
         sb.append("\t receive: 接收邮件 \n");
 
         sb.append("\n\t exit：退出当前游戏\n");
