@@ -19,6 +19,10 @@ import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.BuyConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.MallAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.others.DateConsoleCommand;
+import com.ljh.clientdemo.console.impl.pk.AttackRoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.pk.EscapeConsoleCommand;
+import com.ljh.clientdemo.console.impl.pk.PKConsoleCommand;
+import com.ljh.clientdemo.console.impl.pk.SpellRoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
 import com.ljh.clientdemo.console.impl.user.StateConsoleCommand;
@@ -93,6 +97,12 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("email", new EmailAllConsoleCommand());
         consoleCommandMap.put("receive", new EmailReceiveConsoleCommand());
 
+        // pk
+        consoleCommandMap.put("pk", new PKConsoleCommand());
+        consoleCommandMap.put("ar", new AttackRoleConsoleCommand());
+        consoleCommandMap.put("spr", new SpellRoleConsoleCommand());
+        consoleCommandMap.put("escape", new EscapeConsoleCommand());
+
 
         consoleCommandMap.put("exit", new ExitConsoleCommand());
 
@@ -101,7 +111,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         // 获取指令
-        String command = scanner.next();
+        String command = scanner.next().toLowerCase();
 
         // 获取指令对应的执行
         ConsoleCommand consoleCommand = consoleCommandMap.get(command);
