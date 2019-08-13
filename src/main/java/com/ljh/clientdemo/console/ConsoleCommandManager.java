@@ -19,7 +19,7 @@ import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.BuyConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.MallAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.others.DateConsoleCommand;
-import com.ljh.clientdemo.console.impl.pk.AttackRoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.pk.AcceptPKConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.EscapeConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.PKConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.SpellRoleConsoleCommand;
@@ -99,7 +99,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
 
         // pk
         consoleCommandMap.put("pk", new PKConsoleCommand());
-        consoleCommandMap.put("ar", new AttackRoleConsoleCommand());
+        consoleCommandMap.put("ac", new AcceptPKConsoleCommand());
         consoleCommandMap.put("spr", new SpellRoleConsoleCommand());
         consoleCommandMap.put("escape", new EscapeConsoleCommand());
 

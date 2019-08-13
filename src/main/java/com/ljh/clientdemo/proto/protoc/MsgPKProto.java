@@ -29,28 +29,44 @@ public final class MsgPKProto {
     PK(0),
     /**
      * <pre>
-     * 攻击玩家
-     * </pre>
-     *
-     * <code>AR = 1;</code>
-     */
-    AR(1),
-    /**
-     * <pre>
      * 技能攻击玩家
      * </pre>
      *
-     * <code>SPR = 2;</code>
+     * <code>SPR = 1;</code>
      */
-    SPR(2),
+    SPR(1),
     /**
      * <pre>
      * 退出挑战
      * </pre>
      *
-     * <code>ESCAPE = 3;</code>
+     * <code>ESCAPE = 2;</code>
      */
-    ESCAPE(3),
+    ESCAPE(2),
+    /**
+     * <pre>
+     * 挑战邀请
+     * </pre>
+     *
+     * <code>INVITE = 3;</code>
+     */
+    INVITE(3),
+    /**
+     * <pre>
+     * 接受挑战
+     * </pre>
+     *
+     * <code>AC = 4;</code>
+     */
+    AC(4),
+    /**
+     * <pre>
+     * 挑战结果
+     * </pre>
+     *
+     * <code>RESULT = 5;</code>
+     */
+    RESULT(5),
     UNRECOGNIZED(-1),
     ;
 
@@ -64,28 +80,44 @@ public final class MsgPKProto {
     public static final int PK_VALUE = 0;
     /**
      * <pre>
-     * 攻击玩家
-     * </pre>
-     *
-     * <code>AR = 1;</code>
-     */
-    public static final int AR_VALUE = 1;
-    /**
-     * <pre>
      * 技能攻击玩家
      * </pre>
      *
-     * <code>SPR = 2;</code>
+     * <code>SPR = 1;</code>
      */
-    public static final int SPR_VALUE = 2;
+    public static final int SPR_VALUE = 1;
     /**
      * <pre>
      * 退出挑战
      * </pre>
      *
-     * <code>ESCAPE = 3;</code>
+     * <code>ESCAPE = 2;</code>
      */
-    public static final int ESCAPE_VALUE = 3;
+    public static final int ESCAPE_VALUE = 2;
+    /**
+     * <pre>
+     * 挑战邀请
+     * </pre>
+     *
+     * <code>INVITE = 3;</code>
+     */
+    public static final int INVITE_VALUE = 3;
+    /**
+     * <pre>
+     * 接受挑战
+     * </pre>
+     *
+     * <code>AC = 4;</code>
+     */
+    public static final int AC_VALUE = 4;
+    /**
+     * <pre>
+     * 挑战结果
+     * </pre>
+     *
+     * <code>RESULT = 5;</code>
+     */
+    public static final int RESULT_VALUE = 5;
 
 
     public final int getNumber() {
@@ -107,9 +139,11 @@ public final class MsgPKProto {
     public static RequestType forNumber(int value) {
       switch (value) {
         case 0: return PK;
-        case 1: return AR;
-        case 2: return SPR;
-        case 3: return ESCAPE;
+        case 1: return SPR;
+        case 2: return ESCAPE;
+        case 3: return INVITE;
+        case 4: return AC;
+        case 5: return RESULT;
         default: return null;
       }
     }
@@ -915,6 +949,19 @@ public final class MsgPKProto {
      * <code>.Role opponent = 5;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getOpponentOrBuilder();
+
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    boolean hasRecord();
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    com.ljh.clientdemo.proto.protoc.PKProto.PKRecord getRecord();
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder getRecordOrBuilder();
   }
   /**
    * Protobuf type {@code ResponsePK}
@@ -1002,6 +1049,19 @@ public final class MsgPKProto {
               if (subBuilder != null) {
                 subBuilder.mergeFrom(opponent_);
                 opponent_ = subBuilder.buildPartial();
+              }
+
+              break;
+            }
+            case 50: {
+              com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder subBuilder = null;
+              if (record_ != null) {
+                subBuilder = record_.toBuilder();
+              }
+              record_ = input.readMessage(com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.parser(), extensionRegistry);
+              if (subBuilder != null) {
+                subBuilder.mergeFrom(record_);
+                record_ = subBuilder.buildPartial();
               }
 
               break;
@@ -1140,6 +1200,27 @@ public final class MsgPKProto {
       return getOpponent();
     }
 
+    public static final int RECORD_FIELD_NUMBER = 6;
+    private com.ljh.clientdemo.proto.protoc.PKProto.PKRecord record_;
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    public boolean hasRecord() {
+      return record_ != null;
+    }
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    public com.ljh.clientdemo.proto.protoc.PKProto.PKRecord getRecord() {
+      return record_ == null ? com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.getDefaultInstance() : record_;
+    }
+    /**
+     * <code>.PKRecord record = 6;</code>
+     */
+    public com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder getRecordOrBuilder() {
+      return getRecord();
+    }
+
     private byte memoizedIsInitialized = -1;
     @java.lang.Override
     public final boolean isInitialized() {
@@ -1169,6 +1250,9 @@ public final class MsgPKProto {
       if (opponent_ != null) {
         output.writeMessage(5, getOpponent());
       }
+      if (record_ != null) {
+        output.writeMessage(6, getRecord());
+      }
       unknownFields.writeTo(output);
     }
 
@@ -1196,6 +1280,10 @@ public final class MsgPKProto {
       if (opponent_ != null) {
         size += com.google.protobuf.CodedOutputStream
           .computeMessageSize(5, getOpponent());
+      }
+      if (record_ != null) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeMessageSize(6, getRecord());
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -1227,6 +1315,11 @@ public final class MsgPKProto {
         if (!getOpponent()
             .equals(other.getOpponent())) return false;
       }
+      if (hasRecord() != other.hasRecord()) return false;
+      if (hasRecord()) {
+        if (!getRecord()
+            .equals(other.getRecord())) return false;
+      }
       if (!unknownFields.equals(other.unknownFields)) return false;
       return true;
     }
@@ -1251,6 +1344,10 @@ public final class MsgPKProto {
       if (hasOpponent()) {
         hash = (37 * hash) + OPPONENT_FIELD_NUMBER;
         hash = (53 * hash) + getOpponent().hashCode();
+      }
+      if (hasRecord()) {
+        hash = (37 * hash) + RECORD_FIELD_NUMBER;
+        hash = (53 * hash) + getRecord().hashCode();
       }
       hash = (29 * hash) + unknownFields.hashCode();
       memoizedHashCode = hash;
@@ -1403,6 +1500,12 @@ public final class MsgPKProto {
           opponent_ = null;
           opponentBuilder_ = null;
         }
+        if (recordBuilder_ == null) {
+          record_ = null;
+        } else {
+          record_ = null;
+          recordBuilder_ = null;
+        }
         return this;
       }
 
@@ -1441,6 +1544,11 @@ public final class MsgPKProto {
           result.opponent_ = opponent_;
         } else {
           result.opponent_ = opponentBuilder_.build();
+        }
+        if (recordBuilder_ == null) {
+          result.record_ = record_;
+        } else {
+          result.record_ = recordBuilder_.build();
         }
         onBuilt();
         return result;
@@ -1505,6 +1613,9 @@ public final class MsgPKProto {
         }
         if (other.hasOpponent()) {
           mergeOpponent(other.getOpponent());
+        }
+        if (other.hasRecord()) {
+          mergeRecord(other.getRecord());
         }
         this.mergeUnknownFields(other.unknownFields);
         onChanged();
@@ -1908,6 +2019,123 @@ public final class MsgPKProto {
         }
         return opponentBuilder_;
       }
+
+      private com.ljh.clientdemo.proto.protoc.PKProto.PKRecord record_;
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljh.clientdemo.proto.protoc.PKProto.PKRecord, com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder, com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder> recordBuilder_;
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public boolean hasRecord() {
+        return recordBuilder_ != null || record_ != null;
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public com.ljh.clientdemo.proto.protoc.PKProto.PKRecord getRecord() {
+        if (recordBuilder_ == null) {
+          return record_ == null ? com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.getDefaultInstance() : record_;
+        } else {
+          return recordBuilder_.getMessage();
+        }
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public Builder setRecord(com.ljh.clientdemo.proto.protoc.PKProto.PKRecord value) {
+        if (recordBuilder_ == null) {
+          if (value == null) {
+            throw new NullPointerException();
+          }
+          record_ = value;
+          onChanged();
+        } else {
+          recordBuilder_.setMessage(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public Builder setRecord(
+          com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder builderForValue) {
+        if (recordBuilder_ == null) {
+          record_ = builderForValue.build();
+          onChanged();
+        } else {
+          recordBuilder_.setMessage(builderForValue.build());
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public Builder mergeRecord(com.ljh.clientdemo.proto.protoc.PKProto.PKRecord value) {
+        if (recordBuilder_ == null) {
+          if (record_ != null) {
+            record_ =
+              com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.newBuilder(record_).mergeFrom(value).buildPartial();
+          } else {
+            record_ = value;
+          }
+          onChanged();
+        } else {
+          recordBuilder_.mergeFrom(value);
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public Builder clearRecord() {
+        if (recordBuilder_ == null) {
+          record_ = null;
+          onChanged();
+        } else {
+          record_ = null;
+          recordBuilder_ = null;
+        }
+
+        return this;
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder getRecordBuilder() {
+        
+        onChanged();
+        return getRecordFieldBuilder().getBuilder();
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      public com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder getRecordOrBuilder() {
+        if (recordBuilder_ != null) {
+          return recordBuilder_.getMessageOrBuilder();
+        } else {
+          return record_ == null ?
+              com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.getDefaultInstance() : record_;
+        }
+      }
+      /**
+       * <code>.PKRecord record = 6;</code>
+       */
+      private com.google.protobuf.SingleFieldBuilderV3<
+          com.ljh.clientdemo.proto.protoc.PKProto.PKRecord, com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder, com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder> 
+          getRecordFieldBuilder() {
+        if (recordBuilder_ == null) {
+          recordBuilder_ = new com.google.protobuf.SingleFieldBuilderV3<
+              com.ljh.clientdemo.proto.protoc.PKProto.PKRecord, com.ljh.clientdemo.proto.protoc.PKProto.PKRecord.Builder, com.ljh.clientdemo.proto.protoc.PKProto.PKRecordOrBuilder>(
+                  getRecord(),
+                  getParentForChildren(),
+                  isClean());
+          record_ = null;
+        }
+        return recordBuilder_;
+      }
       @java.lang.Override
       public final Builder setUnknownFields(
           final com.google.protobuf.UnknownFieldSet unknownFields) {
@@ -1980,20 +2208,23 @@ public final class MsgPKProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013MsgPK.proto\032\nRole.proto\"X\n\tRequestPK\022\016" +
-      "\n\006userId\030\001 \001(\003\022\016\n\006roleId\030\002 \001(\003\022\017\n\007spellI" +
-      "d\030\003 \001(\005\022\032\n\004type\030\004 \001(\0162\014.RequestType\"v\n\nR" +
-      "esponsePK\022\016\n\006result\030\001 \001(\005\022\017\n\007content\030\002 \001" +
-      "(\t\022\032\n\004type\030\003 \001(\0162\014.RequestType\022\022\n\003own\030\004 " +
-      "\001(\0132\005.Role\022\027\n\010opponent\030\005 \001(\0132\005.Role*2\n\013R" +
-      "equestType\022\006\n\002PK\020\000\022\006\n\002AR\020\001\022\007\n\003SPR\020\002\022\n\n\006E" +
-      "SCAPE\020\003B-\n\037com.ljh.clientdemo.proto.prot" +
-      "ocB\nMsgPKProtob\006proto3"
+      "\n\013MsgPK.proto\032\nRole.proto\032\010PK.proto\"X\n\tR" +
+      "equestPK\022\016\n\006userId\030\001 \001(\003\022\016\n\006roleId\030\002 \001(\003" +
+      "\022\017\n\007spellId\030\003 \001(\005\022\032\n\004type\030\004 \001(\0162\014.Reques" +
+      "tType\"\221\001\n\nResponsePK\022\016\n\006result\030\001 \001(\005\022\017\n\007" +
+      "content\030\002 \001(\t\022\032\n\004type\030\003 \001(\0162\014.RequestTyp" +
+      "e\022\022\n\003own\030\004 \001(\0132\005.Role\022\027\n\010opponent\030\005 \001(\0132" +
+      "\005.Role\022\031\n\006record\030\006 \001(\0132\t.PKRecord*J\n\013Req" +
+      "uestType\022\006\n\002PK\020\000\022\007\n\003SPR\020\001\022\n\n\006ESCAPE\020\002\022\n\n" +
+      "\006INVITE\020\003\022\006\n\002AC\020\004\022\n\n\006RESULT\020\005B-\n\037com.ljh" +
+      ".clientdemo.proto.protocB\nMsgPKProtob\006pr" +
+      "oto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
         new com.google.protobuf.Descriptors.FileDescriptor[] {
           com.ljh.clientdemo.proto.protoc.RoleProto.getDescriptor(),
+          com.ljh.clientdemo.proto.protoc.PKProto.getDescriptor(),
         });
     internal_static_RequestPK_descriptor =
       getDescriptor().getMessageTypes().get(0);
@@ -2006,8 +2237,9 @@ public final class MsgPKProto {
     internal_static_ResponsePK_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_ResponsePK_descriptor,
-        new java.lang.String[] { "Result", "Content", "Type", "Own", "Opponent", });
+        new java.lang.String[] { "Result", "Content", "Type", "Own", "Opponent", "Record", });
     com.ljh.clientdemo.proto.protoc.RoleProto.getDescriptor();
+    com.ljh.clientdemo.proto.protoc.PKProto.getDescriptor();
   }
 
   // @@protoc_insertion_point(outer_class_scope)

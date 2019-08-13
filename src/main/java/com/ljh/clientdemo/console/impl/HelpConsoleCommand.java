@@ -67,7 +67,13 @@ public class HelpConsoleCommand implements ConsoleCommand {
 
         sb.append("邮件：\n");
         sb.append("\t email: 获取邮件列表\n ");
-        sb.append("\t receive: 接收邮件 \n");
+        sb.append("\t receive: 接收邮件物品 \n");
+
+        sb.append("PK：\n");
+        sb.append("\t pk: 邀请玩家进行pk\n");
+        sb.append("\t ac：接受 pk 挑战\t");
+        sb.append("\t spr: 使用技能攻击玩家\t");
+        sb.append("\t escape: 离开当前的pk挑战，本场将被判为战败\n");
 
         sb.append("\n\t exit：退出当前游戏\n");
 

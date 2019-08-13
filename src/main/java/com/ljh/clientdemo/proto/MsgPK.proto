@@ -3,17 +3,19 @@ syntax = "proto3";
 // protoc --proto_path=src/main/java/com/ljh/clientdemo/proto/ --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/MsgPK.proto
 
 import "Role.proto";
+import "PK.proto";
 
 option java_package = "com.ljh.clientdemo.proto.protoc";
 option java_outer_classname = "MsgPKProto";
 
 enum RequestType{
-    PK = 0;     // PK 挑战
-    AR = 1;     // 攻击玩家
-    SPR = 2;    // 技能攻击玩家
-    ESCAPE = 3;     // 退出挑战
+    PK = 0;                 // PK 挑战
+    SPR = 1;                // 技能攻击玩家
+    ESCAPE = 2;             // 退出挑战
+    INVITE = 3;             // 挑战邀请
+    AC = 4;                 // 接受挑战
+    RESULT = 5;             // 挑战结果
 }
-
 
 message RequestPK{
     int64 userId = 1;
@@ -31,4 +33,6 @@ message ResponsePK{
 
     Role own = 4;
     Role opponent = 5;
+
+    PKRecord record = 6;
 }

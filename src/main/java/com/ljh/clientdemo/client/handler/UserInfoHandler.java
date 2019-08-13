@@ -31,9 +31,15 @@ public class UserInfoHandler extends SimpleChannelInboundHandler<MsgUserInfoProt
             String typeName = EntityType.getContentFromCode(role.getType()).getContent();
             String aliveName = role.getAlive() == 1 ? "存活" : "死亡";
 
-            System.out.println("当前的角色为：" + role.getName() + " 职业：" + typeName + " 等级：" + role.getLevel() +
-                    " 状态：" + aliveName + "\n");
-        } else if (responseUserInfo.getType().equals(MsgUserInfoProto.RequestType.EXIT)){
+            System.out.println("当前的角色为：" + role.getName() + " 职业：" + typeName + " 血量：" + role.getHp() +
+                    " 状态：" + aliveName + "  金币：" + role.getGold() + "  荣誉值：" + role.getHonor() + "\n");
+        }else if (responseUserInfo.getType().equals(MsgUserInfoProto.RequestType.RELIVE)){
+            System.out.println(responseUserInfo.getContent());
+
+            RoleProto.Role r = responseUserInfo.getRole();
+            System.out.println("当前的角色为：" + r.getName() + "血量：" + r.getHp() + "\n");
+
+        } else if (responseUserInfo.getType().equals(MsgUserInfoProto.RequestType.EXIT)) {
 
             // 退出系统成功，删除本地记录
             IOUtils.writeToken("");
