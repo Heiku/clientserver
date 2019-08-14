@@ -71,9 +71,17 @@ public class HelpConsoleCommand implements ConsoleCommand {
 
         sb.append("PK：\n");
         sb.append("\t pk: 邀请玩家进行pk\n");
-        sb.append("\t ac：接受 pk 挑战\t");
-        sb.append("\t spr: 使用技能攻击玩家\t");
+        sb.append("\t ac：接受 pk 挑战\n");
+        sb.append("\t spr: 使用技能攻击玩家\n");
         sb.append("\t escape: 离开当前的pk挑战，本场将被判为战败\n");
+
+        sb.append("组队：\n");
+        sb.append("\t gs: 查看组队状态\n");
+        sb.append("\t group: 发起组队邀请\n");
+        sb.append("\t join: 接受组队的邀请，加入队伍\n");
+        sb.append("\t exit: 退出队伍\n");
+
+
 
         sb.append("\n\t exit：退出当前游戏\n");
 

@@ -46,5 +46,7 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new EmailHandler());
 
         pipeline.addLast(new PKHandler());
+
+        pipeline.addLast(new GroupHandler());
     }
 }

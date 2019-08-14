@@ -14,6 +14,10 @@ import com.ljh.clientdemo.console.impl.equip.EquipAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipFixConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipPutConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipTakeOffConsoleCommand;
+import com.ljh.clientdemo.console.impl.group.ExitGroupConsoleCommand;
+import com.ljh.clientdemo.console.impl.group.InviteGroupConsoleCommand;
+import com.ljh.clientdemo.console.impl.group.JoinGroupConsoleCommand;
+import com.ljh.clientdemo.console.impl.group.StateGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.item.BagAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.BuyConsoleCommand;
@@ -59,12 +63,12 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("talk", new TalkEntityConsoleCommand());
 
         consoleCommandMap.put("spell", new SpellConsoleCommand());
+        consoleCommandMap.put("sps", new SpellToSaveConsoleCommand());
         consoleCommandMap.put("learn", new LearnSpellConsoleCommand());
 
         // attack
         consoleCommandMap.put("attackc", new AttackCreepConsoleCommand());
         consoleCommandMap.put("spc", new AttackCreepSpellConsoleCommand());
-        consoleCommandMap.put("sps", new SpellToSaveConsoleCommand());
         consoleCommandMap.put("stopc", new StopAttackCreepConsoleCommand());
 
         // bag
@@ -80,7 +84,6 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // duplicate boss
         consoleCommandMap.put("duplicate", new DuplicateConsoleCommand());
         consoleCommandMap.put("enter", new EnterDuplicateConsoleCommand());
-        consoleCommandMap.put("attackb", new AttackBossConsoleCommand());
         consoleCommandMap.put("spb", new SpellToBossConsoleCommand());
         consoleCommandMap.put("stopb", new StopDuplicateConsoleCommand());
         consoleCommandMap.put("leave", new LeaveDuplicateConsoleCommand());
@@ -103,8 +106,13 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("spr", new SpellRoleConsoleCommand());
         consoleCommandMap.put("escape", new EscapeConsoleCommand());
 
+        // group
+        consoleCommandMap.put("gs", new StateGroupConsoleCommand());
+        consoleCommandMap.put("group", new InviteGroupConsoleCommand());
+        consoleCommandMap.put("join", new JoinGroupConsoleCommand());
+        consoleCommandMap.put("exit", new ExitGroupConsoleCommand());
 
-        consoleCommandMap.put("exit", new ExitConsoleCommand());
+        consoleCommandMap.put("quit", new ExitConsoleCommand());
 
     }
 
