@@ -27,6 +27,9 @@ import com.ljh.clientdemo.console.impl.pk.AcceptPKConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.EscapeConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.PKConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.SpellRoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.role.CreateRoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.role.RoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.role.RoleTypeConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
 import com.ljh.clientdemo.console.impl.user.StateConsoleCommand;
@@ -43,6 +46,10 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.Scanner;
 
+/**
+ * 客户端命令控制台
+ *
+ */
 public class ConsoleCommandManager implements ConsoleCommand {
 
     private Map<String, ConsoleCommand> consoleCommandMap;
@@ -50,18 +57,29 @@ public class ConsoleCommandManager implements ConsoleCommand {
     public ConsoleCommandManager(){
         consoleCommandMap = new HashMap<>();
 
+        // common
         consoleCommandMap.put("help", new HelpConsoleCommand());
         consoleCommandMap.put("date", new DateConsoleCommand());
 
+        // user
         consoleCommandMap.put("login", new LoginConsoleCommand());
         consoleCommandMap.put("register", new RegisterConsoleCommand());
+
+        // role
+        consoleCommandMap.put("role", new RoleConsoleCommand());
+        consoleCommandMap.put("rt", new RoleTypeConsoleCommand());
+        consoleCommandMap.put("create", new CreateRoleConsoleCommand());
+
+        // site
         consoleCommandMap.put("site", new SiteConsoleCommand());
         consoleCommandMap.put("move", new MoveConsoleCommand());
         consoleCommandMap.put("state", new StateConsoleCommand());
         consoleCommandMap.put("aoi", new AoiConsoleCommand());
 
+        // talk
         consoleCommandMap.put("talk", new TalkEntityConsoleCommand());
 
+        // spell
         consoleCommandMap.put("spell", new SpellConsoleCommand());
         consoleCommandMap.put("sps", new SpellToSaveConsoleCommand());
         consoleCommandMap.put("learn", new LearnSpellConsoleCommand());

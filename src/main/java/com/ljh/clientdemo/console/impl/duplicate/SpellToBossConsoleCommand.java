@@ -28,4 +28,9 @@ public class SpellToBossConsoleCommand implements ConsoleCommand {
     }
 }
 
+// spb 10020
 // spb 10021
+
+
+// spb 10001
+// spb 10002

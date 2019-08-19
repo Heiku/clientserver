@@ -19,6 +19,11 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t register：注册\n");
         sb.append("\t state：角色绑定\n");
 
+        sb.append("角色相关：\n");
+        sb.append("\t role: 查看当前的角色状态\n");
+        sb.append("\t rt: 展示所有的角色类型\n");
+        sb.append("\t create: 创建对应的玩家角色信息\n");
+
         sb.append("场景：\n");
         sb.append("\t site：获取当前角色的位置场景\n");
         sb.append("\t move：移动当前角色\n");
