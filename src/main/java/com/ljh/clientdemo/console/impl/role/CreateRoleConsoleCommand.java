@@ -1,6 +1,7 @@
 package com.ljh.clientdemo.console.impl.role;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
+import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.proto.protoc.MsgRoleProto;
 import io.netty.channel.Channel;
 
@@ -23,6 +24,7 @@ public class CreateRoleConsoleCommand implements ConsoleCommand {
         int type = scanner.nextInt();
 
         MsgRoleProto.RequestRole req = MsgRoleProto.RequestRole.newBuilder()
+                .setUserId(LocalUserData.getUserId())
                 .setRoleName(roleName)
                 .setRoleType(type)
                 .setType(MsgRoleProto.RequestType.CREATE_ROLE)
