@@ -15,16 +15,20 @@ public class LearnSpellConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你想学习地技能id：");
+        try {
+            System.out.println("请输入你想学习地技能id：");
 
-        int spellId = Integer.valueOf(scanner.next());
+            int spellId = Integer.valueOf(scanner.next());
 
-        MsgSpellProto.RequestSpell requestSpell = MsgSpellProto.RequestSpell.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setType(MsgSpellProto.RequestType.LEARN)
-                .setSpellId(spellId)
-                .build();
+            MsgSpellProto.RequestSpell requestSpell = MsgSpellProto.RequestSpell.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setType(MsgSpellProto.RequestType.LEARN)
+                    .setSpellId(spellId)
+                    .build();
 
-        channel.writeAndFlush(requestSpell);
+            channel.writeAndFlush(requestSpell);
+        } catch (NumberFormatException e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

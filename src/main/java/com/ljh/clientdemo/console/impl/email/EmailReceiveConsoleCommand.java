@@ -15,15 +15,19 @@ public class EmailReceiveConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要接收的邮件id：");
-        long eid = scanner.nextLong();
+        try {
+            System.out.println("请输入你要接收的邮件id：");
+            long eid = scanner.nextLong();
 
-        MsgEmailProto.RequestEmail request =  MsgEmailProto.RequestEmail.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setType(MsgEmailProto.RequestType.RECEIVE)
-                .setEid(eid)
-                .build();
+            MsgEmailProto.RequestEmail request =  MsgEmailProto.RequestEmail.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setType(MsgEmailProto.RequestType.RECEIVE)
+                    .setEid(eid)
+                    .build();
 
-        channel.writeAndFlush(request);
+            channel.writeAndFlush(request);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

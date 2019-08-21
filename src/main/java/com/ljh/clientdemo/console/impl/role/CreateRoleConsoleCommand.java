@@ -17,18 +17,22 @@ public class CreateRoleConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你的玩家名称：");
-        String roleName = scanner.next();
+        try {
+            System.out.println("请输入你的玩家名称：");
+            String roleName = scanner.next();
 
-        System.out.println("请输入你要创建的角色类型");
-        int type = scanner.nextInt();
+            System.out.println("请输入你要创建的角色类型");
+            int type = scanner.nextInt();
 
-        MsgRoleProto.RequestRole req = MsgRoleProto.RequestRole.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setRoleName(roleName)
-                .setRoleType(type)
-                .setType(MsgRoleProto.RequestType.CREATE_ROLE)
-                .build();
-        channel.writeAndFlush(req);
+            MsgRoleProto.RequestRole req = MsgRoleProto.RequestRole.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setRoleName(roleName)
+                    .setRoleType(type)
+                    .setType(MsgRoleProto.RequestType.CREATE_ROLE)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

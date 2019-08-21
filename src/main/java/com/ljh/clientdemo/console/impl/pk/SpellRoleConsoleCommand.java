@@ -17,17 +17,21 @@ public class SpellRoleConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        int spellId = scanner.nextInt();
-        long roleId = scanner.nextLong();
+        try {
+            int spellId = scanner.nextInt();
+            long roleId = scanner.nextLong();
 
-        MsgPKProto.RequestPK req = MsgPKProto.RequestPK.newBuilder()
-                .setType(MsgPKProto.RequestType.SPR)
-                .setUserId(LocalUserData.getUserId())
-                .setSpellId(spellId)
-                .setRoleId(roleId)
-                .build();
+            MsgPKProto.RequestPK req = MsgPKProto.RequestPK.newBuilder()
+                    .setType(MsgPKProto.RequestType.SPR)
+                    .setUserId(LocalUserData.getUserId())
+                    .setSpellId(spellId)
+                    .setRoleId(roleId)
+                    .build();
 
-        channel.writeAndFlush(req);
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
 
         // spr spellId roleId
         // spr 10020 10003

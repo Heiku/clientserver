@@ -15,22 +15,26 @@ public class ChatRoleConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入聊天的玩家id：");
+        try {
+            System.out.println("请输入聊天的玩家id：");
 
-        long roleId = scanner.nextLong();
+            long roleId = scanner.nextLong();
 
-        scanner.nextLine();
-        System.out.println("\n聊天内容：");
+            scanner.nextLine();
+            System.out.println("\n聊天内容：");
 
-        String content = scanner.nextLine();
+            String content = scanner.nextLine();
 
-        MsgChatProto.RequestChat request = MsgChatProto.RequestChat.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setRoleId(roleId)
-                .setContent(content)
-                .setType(MsgChatProto.RequestType.CHAT)
-                .build();
+            MsgChatProto.RequestChat request = MsgChatProto.RequestChat.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setRoleId(roleId)
+                    .setContent(content)
+                    .setType(MsgChatProto.RequestType.CHAT)
+                    .build();
 
-        channel.writeAndFlush(request);
+            channel.writeAndFlush(request);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

@@ -31,7 +31,7 @@ public class RoleHandler extends SimpleChannelInboundHandler<MsgRoleProto.Respon
 
             sb.append("当前的角色信息如下：\n\n");
             sb.append("id：" + r.getRoleId() + " 名称：" + r.getName() + " Hp：" + r.getHp() + " Mp：" + r.getMp()  +
-                    " 等级： " + r.getLevel() + " 金币：" + r.getGold() +  "荣誉值：" + r.getHonor() +" \n");
+                    " 等级： " + r.getLevel() + " 金币：" + r.getGold() +  " 荣誉值：" + r.getHonor() +" \n");
 
             System.out.println(sb.toString());
         }

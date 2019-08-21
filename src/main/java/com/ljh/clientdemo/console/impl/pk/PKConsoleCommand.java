@@ -17,15 +17,19 @@ public class PKConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要进行 PK 挑战的玩家id：");
+        try {
+            System.out.println("请输入你要进行 PK 挑战的玩家id：");
 
-        long roleId = scanner.nextLong();
+            long roleId = scanner.nextLong();
 
-        MsgPKProto.RequestPK req = MsgPKProto.RequestPK.newBuilder()
-                .setType(MsgPKProto.RequestType.PK)
-                .setUserId(LocalUserData.getUserId())
-                .setRoleId(roleId)
-                .build();
-        channel.writeAndFlush(req);
+            MsgPKProto.RequestPK req = MsgPKProto.RequestPK.newBuilder()
+                    .setType(MsgPKProto.RequestType.PK)
+                    .setUserId(LocalUserData.getUserId())
+                    .setRoleId(roleId)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

@@ -11,7 +11,7 @@ import java.util.concurrent.TimeUnit;
  */
 public class ServerIdleStateHandler extends IdleStateHandler {
 
-    private static final int READER_IDLE_TIME = 60 * 5;
+    private static final int READER_IDLE_TIME = 60 * 10;
 
     public ServerIdleStateHandler(){
         super(READER_IDLE_TIME, 0, 0, TimeUnit.SECONDS);
@@ -22,5 +22,4 @@ public class ServerIdleStateHandler extends IdleStateHandler {
         System.out.println(READER_IDLE_TIME + "秒内未读到数据，关闭连接.");
         ctx.channel().close();
     }
-
 }

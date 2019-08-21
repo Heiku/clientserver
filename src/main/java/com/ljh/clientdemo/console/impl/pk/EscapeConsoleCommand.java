@@ -17,15 +17,19 @@ public class EscapeConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        long roleId = scanner.nextLong();
+        try {
+            long roleId = scanner.nextLong();
 
-        MsgPKProto.RequestPK requestPK = MsgPKProto.RequestPK.newBuilder()
-                .setType(MsgPKProto.RequestType.ESCAPE)
-                .setUserId(LocalUserData.getUserId())
-                .setRoleId(roleId)
-                .build();
+            MsgPKProto.RequestPK requestPK = MsgPKProto.RequestPK.newBuilder()
+                    .setType(MsgPKProto.RequestType.ESCAPE)
+                    .setUserId(LocalUserData.getUserId())
+                    .setRoleId(roleId)
+                    .build();
 
-        channel.writeAndFlush(requestPK);
+            channel.writeAndFlush(requestPK);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
 
         // escape 10003
     }

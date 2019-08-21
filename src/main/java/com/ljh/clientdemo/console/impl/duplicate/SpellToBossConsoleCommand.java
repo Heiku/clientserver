@@ -16,15 +16,19 @@ public class SpellToBossConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         //System.out.println("请输入你要施放的技能id：");
-        Integer spellId = scanner.nextInt();
+        try {
+            int spellId = scanner.nextInt();
 
-        MsgDuplicateProto.RequestDuplicate request = MsgDuplicateProto.RequestDuplicate.newBuilder()
-                .setType(MsgDuplicateProto.RequestType.SPELL)
-                .setUserId(LocalUserData.getUserId())
-                .setSpellId(spellId)
-                .build();
+            MsgDuplicateProto.RequestDuplicate request = MsgDuplicateProto.RequestDuplicate.newBuilder()
+                    .setType(MsgDuplicateProto.RequestType.SPELL)
+                    .setUserId(LocalUserData.getUserId())
+                    .setSpellId(spellId)
+                    .build();
 
-        channel.writeAndFlush(request);
+            channel.writeAndFlush(request);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }
 

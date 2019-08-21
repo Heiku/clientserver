@@ -17,16 +17,20 @@ public class EnterDuplicateConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入挑战的副本id：");
+        try {
+            System.out.println("请输入挑战的副本id：");
 
-        long duId = scanner.nextLong();
+            long duId = scanner.nextLong();
 
-        MsgDuplicateProto.RequestDuplicate request = MsgDuplicateProto.RequestDuplicate.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setDupId(duId)
-                .setType(MsgDuplicateProto.RequestType.ENTER)
-                .build();
+            MsgDuplicateProto.RequestDuplicate request = MsgDuplicateProto.RequestDuplicate.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setDupId(duId)
+                    .setType(MsgDuplicateProto.RequestType.ENTER)
+                    .build();
 
-        channel.writeAndFlush(request);
+            channel.writeAndFlush(request);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

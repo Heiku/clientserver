@@ -88,7 +88,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
 
 
 
-        sb.append("\n\t exit：退出当前游戏\n");
+        sb.append("\n\t quit：退出当前游戏\n");
 
         System.out.println(sb.toString());
     }
