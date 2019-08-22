@@ -86,7 +86,14 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t join: 接受组队的邀请，加入队伍\n");
         sb.append("\t exit: 退出队伍\n");
 
-
+        sb.append("面对面交易：\n");
+        sb.append("\t initiate: 交易发起\n");
+        sb.append("\t yes: 接受交易\n");
+        sb.append("\t no: 拒绝交易的申请\n");
+        sb.append("\t ask: 发送交易内容\n");
+        sb.append("\t accept: 确认交易\n");
+        sb.append("\t refuse: 拒绝交易\n");
+        sb.append("\t lt: 离开交易\n");
 
         sb.append("\n\t quit：退出当前游戏\n");
 

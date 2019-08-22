@@ -67,7 +67,11 @@ public enum MessageType {
 
     // role 31
     REQUEST_ROLE(0x1e, MsgRoleProto.RequestRole.class),
-    RESPONSE_ROLE(0x1f, MsgRoleProto.ResponseRole.class)
+    RESPONSE_ROLE(0x1f, MsgRoleProto.ResponseRole.class),
+
+    // face_transaction
+    REQUEST_FACE_TRANS(0x20, MsgFaceTransProto.RequestFaceTrans.class),
+    RESPONSE_FACE_TRANS(0x21, MsgFaceTransProto.ResponseFaceTrans.class)
     ;
 
 

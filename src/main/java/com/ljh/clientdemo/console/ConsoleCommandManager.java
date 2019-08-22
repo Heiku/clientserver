@@ -14,6 +14,7 @@ import com.ljh.clientdemo.console.impl.equip.EquipAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipFixConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipPutConsoleCommand;
 import com.ljh.clientdemo.console.impl.equip.EquipTakeOffConsoleCommand;
+import com.ljh.clientdemo.console.impl.face.*;
 import com.ljh.clientdemo.console.impl.group.ExitGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.group.InviteGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.group.JoinGroupConsoleCommand;
@@ -129,6 +130,15 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("group", new InviteGroupConsoleCommand());
         consoleCommandMap.put("join", new JoinGroupConsoleCommand());
         consoleCommandMap.put("exit", new ExitGroupConsoleCommand());
+
+        // faceTrans
+        consoleCommandMap.put("initiate", new InitiateTransConsoleCommand());
+        consoleCommandMap.put("yes", new YesTransConsoleCommand());
+        consoleCommandMap.put("no", new NoTransConsoleCommand());
+        consoleCommandMap.put("ask", new AskTransConsoleCommand());
+        consoleCommandMap.put("accept", new AcceptTransConsoleCommand());
+        consoleCommandMap.put("refuse", new RefuseTransConsoleCommand());
+        consoleCommandMap.put("lt", new LeaveTransConsoleCommand());
 
         consoleCommandMap.put("quit", new ExitConsoleCommand());
 
