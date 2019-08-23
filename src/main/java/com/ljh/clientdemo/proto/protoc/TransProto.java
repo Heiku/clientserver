@@ -19,11 +19,16 @@ public final class TransProto {
       com.google.protobuf.MessageOrBuilder {
 
     /**
+     * <code>int64 id = 1;</code>
+     */
+    long getId();
+
+    /**
      * <pre>
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     boolean hasPromoter();
     /**
@@ -31,7 +36,7 @@ public final class TransProto {
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.Role getPromoter();
     /**
@@ -39,7 +44,7 @@ public final class TransProto {
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPromoterOrBuilder();
 
@@ -48,7 +53,7 @@ public final class TransProto {
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     boolean hasReceiver();
     /**
@@ -56,7 +61,7 @@ public final class TransProto {
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.Role getReceiver();
     /**
@@ -64,7 +69,7 @@ public final class TransProto {
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getReceiverOrBuilder();
 
@@ -73,7 +78,7 @@ public final class TransProto {
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     boolean hasGoods();
     /**
@@ -81,7 +86,7 @@ public final class TransProto {
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     com.ljh.clientdemo.proto.protoc.GoodsProto.Goods getGoods();
     /**
@@ -89,7 +94,7 @@ public final class TransProto {
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     com.ljh.clientdemo.proto.protoc.GoodsProto.GoodsOrBuilder getGoodsOrBuilder();
 
@@ -98,7 +103,7 @@ public final class TransProto {
      * 金额
      * </pre>
      *
-     * <code>int32 amount = 4;</code>
+     * <code>int32 amount = 5;</code>
      */
     int getAmount();
   }
@@ -147,7 +152,12 @@ public final class TransProto {
             case 0:
               done = true;
               break;
-            case 10: {
+            case 8: {
+
+              id_ = input.readInt64();
+              break;
+            }
+            case 18: {
               com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder subBuilder = null;
               if (promoter_ != null) {
                 subBuilder = promoter_.toBuilder();
@@ -160,7 +170,7 @@ public final class TransProto {
 
               break;
             }
-            case 18: {
+            case 26: {
               com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder subBuilder = null;
               if (receiver_ != null) {
                 subBuilder = receiver_.toBuilder();
@@ -173,7 +183,7 @@ public final class TransProto {
 
               break;
             }
-            case 26: {
+            case 34: {
               com.ljh.clientdemo.proto.protoc.GoodsProto.Goods.Builder subBuilder = null;
               if (goods_ != null) {
                 subBuilder = goods_.toBuilder();
@@ -186,7 +196,7 @@ public final class TransProto {
 
               break;
             }
-            case 32: {
+            case 40: {
 
               amount_ = input.readInt32();
               break;
@@ -223,14 +233,23 @@ public final class TransProto {
               com.ljh.clientdemo.proto.protoc.TransProto.Trans.class, com.ljh.clientdemo.proto.protoc.TransProto.Trans.Builder.class);
     }
 
-    public static final int PROMOTER_FIELD_NUMBER = 1;
+    public static final int ID_FIELD_NUMBER = 1;
+    private long id_;
+    /**
+     * <code>int64 id = 1;</code>
+     */
+    public long getId() {
+      return id_;
+    }
+
+    public static final int PROMOTER_FIELD_NUMBER = 2;
     private com.ljh.clientdemo.proto.protoc.RoleProto.Role promoter_;
     /**
      * <pre>
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     public boolean hasPromoter() {
       return promoter_ != null;
@@ -240,7 +259,7 @@ public final class TransProto {
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.Role getPromoter() {
       return promoter_ == null ? com.ljh.clientdemo.proto.protoc.RoleProto.Role.getDefaultInstance() : promoter_;
@@ -250,20 +269,20 @@ public final class TransProto {
      * 发起人
      * </pre>
      *
-     * <code>.Role promoter = 1;</code>
+     * <code>.Role promoter = 2;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPromoterOrBuilder() {
       return getPromoter();
     }
 
-    public static final int RECEIVER_FIELD_NUMBER = 2;
+    public static final int RECEIVER_FIELD_NUMBER = 3;
     private com.ljh.clientdemo.proto.protoc.RoleProto.Role receiver_;
     /**
      * <pre>
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     public boolean hasReceiver() {
       return receiver_ != null;
@@ -273,7 +292,7 @@ public final class TransProto {
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.Role getReceiver() {
       return receiver_ == null ? com.ljh.clientdemo.proto.protoc.RoleProto.Role.getDefaultInstance() : receiver_;
@@ -283,20 +302,20 @@ public final class TransProto {
      * 接收人
      * </pre>
      *
-     * <code>.Role receiver = 2;</code>
+     * <code>.Role receiver = 3;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getReceiverOrBuilder() {
       return getReceiver();
     }
 
-    public static final int GOODS_FIELD_NUMBER = 3;
+    public static final int GOODS_FIELD_NUMBER = 4;
     private com.ljh.clientdemo.proto.protoc.GoodsProto.Goods goods_;
     /**
      * <pre>
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     public boolean hasGoods() {
       return goods_ != null;
@@ -306,7 +325,7 @@ public final class TransProto {
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     public com.ljh.clientdemo.proto.protoc.GoodsProto.Goods getGoods() {
       return goods_ == null ? com.ljh.clientdemo.proto.protoc.GoodsProto.Goods.getDefaultInstance() : goods_;
@@ -316,20 +335,20 @@ public final class TransProto {
      * 物品
      * </pre>
      *
-     * <code>.Goods goods = 3;</code>
+     * <code>.Goods goods = 4;</code>
      */
     public com.ljh.clientdemo.proto.protoc.GoodsProto.GoodsOrBuilder getGoodsOrBuilder() {
       return getGoods();
     }
 
-    public static final int AMOUNT_FIELD_NUMBER = 4;
+    public static final int AMOUNT_FIELD_NUMBER = 5;
     private int amount_;
     /**
      * <pre>
      * 金额
      * </pre>
      *
-     * <code>int32 amount = 4;</code>
+     * <code>int32 amount = 5;</code>
      */
     public int getAmount() {
       return amount_;
@@ -349,17 +368,20 @@ public final class TransProto {
     @java.lang.Override
     public void writeTo(com.google.protobuf.CodedOutputStream output)
                         throws java.io.IOException {
+      if (id_ != 0L) {
+        output.writeInt64(1, id_);
+      }
       if (promoter_ != null) {
-        output.writeMessage(1, getPromoter());
+        output.writeMessage(2, getPromoter());
       }
       if (receiver_ != null) {
-        output.writeMessage(2, getReceiver());
+        output.writeMessage(3, getReceiver());
       }
       if (goods_ != null) {
-        output.writeMessage(3, getGoods());
+        output.writeMessage(4, getGoods());
       }
       if (amount_ != 0) {
-        output.writeInt32(4, amount_);
+        output.writeInt32(5, amount_);
       }
       unknownFields.writeTo(output);
     }
@@ -370,21 +392,25 @@ public final class TransProto {
       if (size != -1) return size;
 
       size = 0;
+      if (id_ != 0L) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt64Size(1, id_);
+      }
       if (promoter_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(1, getPromoter());
+          .computeMessageSize(2, getPromoter());
       }
       if (receiver_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(2, getReceiver());
+          .computeMessageSize(3, getReceiver());
       }
       if (goods_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(3, getGoods());
+          .computeMessageSize(4, getGoods());
       }
       if (amount_ != 0) {
         size += com.google.protobuf.CodedOutputStream
-          .computeInt32Size(4, amount_);
+          .computeInt32Size(5, amount_);
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -401,6 +427,8 @@ public final class TransProto {
       }
       com.ljh.clientdemo.proto.protoc.TransProto.Trans other = (com.ljh.clientdemo.proto.protoc.TransProto.Trans) obj;
 
+      if (getId()
+          != other.getId()) return false;
       if (hasPromoter() != other.hasPromoter()) return false;
       if (hasPromoter()) {
         if (!getPromoter()
@@ -429,6 +457,9 @@ public final class TransProto {
       }
       int hash = 41;
       hash = (19 * hash) + getDescriptor().hashCode();
+      hash = (37 * hash) + ID_FIELD_NUMBER;
+      hash = (53 * hash) + com.google.protobuf.Internal.hashLong(
+          getId());
       if (hasPromoter()) {
         hash = (37 * hash) + PROMOTER_FIELD_NUMBER;
         hash = (53 * hash) + getPromoter().hashCode();
@@ -576,6 +607,8 @@ public final class TransProto {
       @java.lang.Override
       public Builder clear() {
         super.clear();
+        id_ = 0L;
+
         if (promoterBuilder_ == null) {
           promoter_ = null;
         } else {
@@ -622,6 +655,7 @@ public final class TransProto {
       @java.lang.Override
       public com.ljh.clientdemo.proto.protoc.TransProto.Trans buildPartial() {
         com.ljh.clientdemo.proto.protoc.TransProto.Trans result = new com.ljh.clientdemo.proto.protoc.TransProto.Trans(this);
+        result.id_ = id_;
         if (promoterBuilder_ == null) {
           result.promoter_ = promoter_;
         } else {
@@ -686,6 +720,9 @@ public final class TransProto {
 
       public Builder mergeFrom(com.ljh.clientdemo.proto.protoc.TransProto.Trans other) {
         if (other == com.ljh.clientdemo.proto.protoc.TransProto.Trans.getDefaultInstance()) return this;
+        if (other.getId() != 0L) {
+          setId(other.getId());
+        }
         if (other.hasPromoter()) {
           mergePromoter(other.getPromoter());
         }
@@ -727,6 +764,32 @@ public final class TransProto {
         return this;
       }
 
+      private long id_ ;
+      /**
+       * <code>int64 id = 1;</code>
+       */
+      public long getId() {
+        return id_;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       */
+      public Builder setId(long value) {
+        
+        id_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <code>int64 id = 1;</code>
+       */
+      public Builder clearId() {
+        
+        id_ = 0L;
+        onChanged();
+        return this;
+      }
+
       private com.ljh.clientdemo.proto.protoc.RoleProto.Role promoter_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.RoleProto.Role, com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder, com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder> promoterBuilder_;
@@ -735,7 +798,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public boolean hasPromoter() {
         return promoterBuilder_ != null || promoter_ != null;
@@ -745,7 +808,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role getPromoter() {
         if (promoterBuilder_ == null) {
@@ -759,7 +822,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public Builder setPromoter(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (promoterBuilder_ == null) {
@@ -779,7 +842,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public Builder setPromoter(
           com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder builderForValue) {
@@ -797,7 +860,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public Builder mergePromoter(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (promoterBuilder_ == null) {
@@ -819,7 +882,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public Builder clearPromoter() {
         if (promoterBuilder_ == null) {
@@ -837,7 +900,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder getPromoterBuilder() {
         
@@ -849,7 +912,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPromoterOrBuilder() {
         if (promoterBuilder_ != null) {
@@ -864,7 +927,7 @@ public final class TransProto {
        * 发起人
        * </pre>
        *
-       * <code>.Role promoter = 1;</code>
+       * <code>.Role promoter = 2;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.RoleProto.Role, com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder, com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder> 
@@ -888,7 +951,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public boolean hasReceiver() {
         return receiverBuilder_ != null || receiver_ != null;
@@ -898,7 +961,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role getReceiver() {
         if (receiverBuilder_ == null) {
@@ -912,7 +975,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public Builder setReceiver(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (receiverBuilder_ == null) {
@@ -932,7 +995,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public Builder setReceiver(
           com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder builderForValue) {
@@ -950,7 +1013,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public Builder mergeReceiver(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (receiverBuilder_ == null) {
@@ -972,7 +1035,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public Builder clearReceiver() {
         if (receiverBuilder_ == null) {
@@ -990,7 +1053,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder getReceiverBuilder() {
         
@@ -1002,7 +1065,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getReceiverOrBuilder() {
         if (receiverBuilder_ != null) {
@@ -1017,7 +1080,7 @@ public final class TransProto {
        * 接收人
        * </pre>
        *
-       * <code>.Role receiver = 2;</code>
+       * <code>.Role receiver = 3;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.RoleProto.Role, com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder, com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder> 
@@ -1041,7 +1104,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public boolean hasGoods() {
         return goodsBuilder_ != null || goods_ != null;
@@ -1051,7 +1114,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GoodsProto.Goods getGoods() {
         if (goodsBuilder_ == null) {
@@ -1065,7 +1128,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public Builder setGoods(com.ljh.clientdemo.proto.protoc.GoodsProto.Goods value) {
         if (goodsBuilder_ == null) {
@@ -1085,7 +1148,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public Builder setGoods(
           com.ljh.clientdemo.proto.protoc.GoodsProto.Goods.Builder builderForValue) {
@@ -1103,7 +1166,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public Builder mergeGoods(com.ljh.clientdemo.proto.protoc.GoodsProto.Goods value) {
         if (goodsBuilder_ == null) {
@@ -1125,7 +1188,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public Builder clearGoods() {
         if (goodsBuilder_ == null) {
@@ -1143,7 +1206,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GoodsProto.Goods.Builder getGoodsBuilder() {
         
@@ -1155,7 +1218,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GoodsProto.GoodsOrBuilder getGoodsOrBuilder() {
         if (goodsBuilder_ != null) {
@@ -1170,7 +1233,7 @@ public final class TransProto {
        * 物品
        * </pre>
        *
-       * <code>.Goods goods = 3;</code>
+       * <code>.Goods goods = 4;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.GoodsProto.Goods, com.ljh.clientdemo.proto.protoc.GoodsProto.Goods.Builder, com.ljh.clientdemo.proto.protoc.GoodsProto.GoodsOrBuilder> 
@@ -1192,7 +1255,7 @@ public final class TransProto {
        * 金额
        * </pre>
        *
-       * <code>int32 amount = 4;</code>
+       * <code>int32 amount = 5;</code>
        */
       public int getAmount() {
         return amount_;
@@ -1202,7 +1265,7 @@ public final class TransProto {
        * 金额
        * </pre>
        *
-       * <code>int32 amount = 4;</code>
+       * <code>int32 amount = 5;</code>
        */
       public Builder setAmount(int value) {
         
@@ -1215,7 +1278,7 @@ public final class TransProto {
        * 金额
        * </pre>
        *
-       * <code>int32 amount = 4;</code>
+       * <code>int32 amount = 5;</code>
        */
       public Builder clearAmount() {
         
@@ -1290,11 +1353,12 @@ public final class TransProto {
       descriptor;
   static {
     java.lang.String[] descriptorData = {
-      "\n\013Trans.proto\032\nRole.proto\032\013Goods.proto\"`" +
-      "\n\005Trans\022\027\n\010promoter\030\001 \001(\0132\005.Role\022\027\n\010rece" +
-      "iver\030\002 \001(\0132\005.Role\022\025\n\005goods\030\003 \001(\0132\006.Goods" +
-      "\022\016\n\006amount\030\004 \001(\005B-\n\037com.ljh.clientdemo.p" +
-      "roto.protocB\nTransProtob\006proto3"
+      "\n\013Trans.proto\032\nRole.proto\032\013Goods.proto\"l" +
+      "\n\005Trans\022\n\n\002id\030\001 \001(\003\022\027\n\010promoter\030\002 \001(\0132\005." +
+      "Role\022\027\n\010receiver\030\003 \001(\0132\005.Role\022\025\n\005goods\030\004" +
+      " \001(\0132\006.Goods\022\016\n\006amount\030\005 \001(\005B-\n\037com.ljh." +
+      "clientdemo.proto.protocB\nTransProtob\006pro" +
+      "to3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1307,7 +1371,7 @@ public final class TransProto {
     internal_static_Trans_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Trans_descriptor,
-        new java.lang.String[] { "Promoter", "Receiver", "Goods", "Amount", });
+        new java.lang.String[] { "Id", "Promoter", "Receiver", "Goods", "Amount", });
     com.ljh.clientdemo.proto.protoc.RoleProto.getDescriptor();
     com.ljh.clientdemo.proto.protoc.GoodsProto.getDescriptor();
   }

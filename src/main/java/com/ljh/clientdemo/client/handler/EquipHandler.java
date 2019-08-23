@@ -62,11 +62,10 @@ public class EquipHandler extends SimpleChannelInboundHandler<MsgEquipProto.Resp
     private String appendEquipInfo(List<EquipProto.Equip> list){
         StringBuilder sb = new StringBuilder();
         for (EquipProto.Equip e : list) {
-            sb.append("id: " + e.getEquipId() + " 装备名：" + e.getName() + " 职业：" + EntityType.getContentFromCode(e.getType()).getContent() +
+            sb.append("id: " + e.getId() + "装备号：" + e.getEquipId() + " 装备名：" + e.getName() + " 职业：" + EntityType.getContentFromCode(e.getType()).getContent() +
                     " 类别：" + PartType.getContentByCode(e.getPart()) + " 等级：" + e.getLevel() + " 普攻加成：" + e.getAUp() +
                     " 技能加成：" + e.getSpUp() + " 生命值加成：" + e.getHpUp() + " 耐久度：" + e.getDurability() +
                     " 可用状态：" + e.getState() + " \n");
-
         }
         return sb.toString();
     }
