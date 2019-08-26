@@ -19,6 +19,7 @@ import com.ljh.clientdemo.console.impl.group.ExitGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.group.InviteGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.group.JoinGroupConsoleCommand;
 import com.ljh.clientdemo.console.impl.group.StateGroupConsoleCommand;
+import com.ljh.clientdemo.console.impl.guild.*;
 import com.ljh.clientdemo.console.impl.item.BagAllConsoleCommand;
 import com.ljh.clientdemo.console.impl.item.UseItemConsoleCommand;
 import com.ljh.clientdemo.console.impl.mall.BuyConsoleCommand;
@@ -129,7 +130,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("gs", new StateGroupConsoleCommand());
         consoleCommandMap.put("group", new InviteGroupConsoleCommand());
         consoleCommandMap.put("join", new JoinGroupConsoleCommand());
-        consoleCommandMap.put("exit", new ExitGroupConsoleCommand());
+        consoleCommandMap.put("egroup", new ExitGroupConsoleCommand());
 
         // faceTrans
         consoleCommandMap.put("initiate", new InitiateTransConsoleCommand());
@@ -140,6 +141,20 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("refuse", new RefuseTransConsoleCommand());
         consoleCommandMap.put("lt", new LeaveTransConsoleCommand());
 
+        // guild
+        consoleCommandMap.put("guild", new GuildConsoleCommand());
+        consoleCommandMap.put("guildAll", new GuildAllConsoleCcommand());
+        consoleCommandMap.put("establish", new EstablishConsoleCommand());
+        consoleCommandMap.put("applyGuild", new ApplyGuildConsoleCommand());
+        consoleCommandMap.put("applyAll", new ApplyAllConsoleCommand());
+        consoleCommandMap.put("approvalYes", new ApprovalYesConsoleCommand());
+        consoleCommandMap.put("approvalNo", new ApprovalNoConsoleCommand());
+        consoleCommandMap.put("modifyAnn", new ModifyANnConsoleCommand());
+        consoleCommandMap.put("give", new GivePositionConsoleCommand());
+        consoleCommandMap.put("donate", new DonateConsoleCommand());
+        consoleCommandMap.put("kickOut", new KickOutConsoleCommand());
+        consoleCommandMap.put("exitGuild", new ExitGuildConsoleCommand());
+
         consoleCommandMap.put("quit", new ExitConsoleCommand());
 
     }
@@ -147,7 +162,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         // 获取指令
-        String command = scanner.next().toLowerCase();
+        String command = scanner.next();
 
         // 获取指令对应的执行
         ConsoleCommand consoleCommand = consoleCommandMap.get(command);

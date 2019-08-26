@@ -1,0 +1,14 @@
+syntax = "proto3";
+
+// protoc --proto_path=src/main/java/com/ljh/clientdemo/proto/ --java_out=src/main/java src/main/java/com/ljh/clientdemo/proto/GuildApply.proto
+
+import "Role.proto";
+
+option java_package = "com.ljh.clientdemo.proto.protoc";
+option java_outer_classname = "GuildApplyProto";
+
+message GuildApply{
+     Role applicant = 1;     // 申请人
+     string applyTime = 2;      // 申请时间
+}
+
