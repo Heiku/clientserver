@@ -9,20 +9,23 @@ import java.util.Scanner;
 
 /**
  * @Author: Heiku
- * @Date: 2019/8/26
+ * @Date: 2019/8/27
  */
-public class ApprovalNoConsoleCommand implements ConsoleCommand {
+public class TakeOutConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要审批的申请id：");
-        long applyId = scanner.nextLong();
+        System.out.println("请输入你要取出的物品id：");
+        long goodsId = scanner.nextLong();
+
+        System.out.println("请输入你要取出的数量：");
+        int num = scanner.nextInt();
 
         MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
-                .setType(MsgGuildProto.RequestType.APPROVAL)
-                .setApproval(2)
+                .setType(MsgGuildProto.RequestType.TAKE_OUT)
                 .setUserId(LocalUserData.getUserId())
-                .setApplyId(applyId)
+                .setGoodsId(goodsId)
+                .setNum(num)
                 .build();
         channel.writeAndFlush(req);
     }

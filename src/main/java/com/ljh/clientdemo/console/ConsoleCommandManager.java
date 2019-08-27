@@ -152,6 +152,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("modifyAnn", new ModifyANnConsoleCommand());
         consoleCommandMap.put("give", new GivePositionConsoleCommand());
         consoleCommandMap.put("donate", new DonateConsoleCommand());
+        consoleCommandMap.put("takeOut", new TakeOutConsoleCommand());
         consoleCommandMap.put("kickOut", new KickOutConsoleCommand());
         consoleCommandMap.put("exitGuild", new ExitGuildConsoleCommand());
 
@@ -163,7 +164,6 @@ public class ConsoleCommandManager implements ConsoleCommand {
     public void exec(Scanner scanner, Channel channel) {
         // 获取指令
         String command = scanner.next();
-
         // 获取指令对应的执行
         ConsoleCommand consoleCommand = consoleCommandMap.get(command);
         if (consoleCommand != null){

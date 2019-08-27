@@ -16,13 +16,13 @@ public class ApprovalYesConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         System.out.println("请输入你要审批的玩家id：");
-        long roleId = scanner.nextLong();
+        long applyId = scanner.nextLong();
 
         MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
                 .setType(MsgGuildProto.RequestType.APPROVAL)
                 .setApproval(1)
                 .setUserId(LocalUserData.getUserId())
-                .setRoleId(roleId)
+                .setApplyId(applyId)
                 .build();
         channel.writeAndFlush(req);
     }
