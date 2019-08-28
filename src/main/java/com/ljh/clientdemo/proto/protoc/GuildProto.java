@@ -83,10 +83,19 @@ public final class GuildProto {
 
     /**
      * <pre>
+     * 最大人数
+     * </pre>
+     *
+     * <code>int32 maxNum = 6;</code>
+     */
+    int getMaxNum();
+
+    /**
+     * <pre>
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     boolean hasPresident();
     /**
@@ -94,7 +103,7 @@ public final class GuildProto {
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.Role getPresident();
     /**
@@ -102,7 +111,7 @@ public final class GuildProto {
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPresidentOrBuilder();
 
@@ -111,7 +120,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     java.util.List<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember> 
         getMemberList();
@@ -120,7 +129,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember getMember(int index);
     /**
@@ -128,7 +137,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     int getMemberCount();
     /**
@@ -136,7 +145,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     java.util.List<? extends com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder> 
         getMemberOrBuilderList();
@@ -145,7 +154,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder getMemberOrBuilder(
         int index);
@@ -226,7 +235,12 @@ public final class GuildProto {
               num_ = input.readInt32();
               break;
             }
-            case 50: {
+            case 48: {
+
+              maxNum_ = input.readInt32();
+              break;
+            }
+            case 58: {
               com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder subBuilder = null;
               if (president_ != null) {
                 subBuilder = president_.toBuilder();
@@ -239,7 +253,7 @@ public final class GuildProto {
 
               break;
             }
-            case 58: {
+            case 66: {
               if (!((mutable_bitField0_ & 0x00000001) != 0)) {
                 member_ = new java.util.ArrayList<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember>();
                 mutable_bitField0_ |= 0x00000001;
@@ -406,14 +420,27 @@ public final class GuildProto {
       return num_;
     }
 
-    public static final int PRESIDENT_FIELD_NUMBER = 6;
+    public static final int MAXNUM_FIELD_NUMBER = 6;
+    private int maxNum_;
+    /**
+     * <pre>
+     * 最大人数
+     * </pre>
+     *
+     * <code>int32 maxNum = 6;</code>
+     */
+    public int getMaxNum() {
+      return maxNum_;
+    }
+
+    public static final int PRESIDENT_FIELD_NUMBER = 7;
     private com.ljh.clientdemo.proto.protoc.RoleProto.Role president_;
     /**
      * <pre>
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     public boolean hasPresident() {
       return president_ != null;
@@ -423,7 +450,7 @@ public final class GuildProto {
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.Role getPresident() {
       return president_ == null ? com.ljh.clientdemo.proto.protoc.RoleProto.Role.getDefaultInstance() : president_;
@@ -433,20 +460,20 @@ public final class GuildProto {
      * 会长信息
      * </pre>
      *
-     * <code>.Role president = 6;</code>
+     * <code>.Role president = 7;</code>
      */
     public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPresidentOrBuilder() {
       return getPresident();
     }
 
-    public static final int MEMBER_FIELD_NUMBER = 7;
+    public static final int MEMBER_FIELD_NUMBER = 8;
     private java.util.List<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember> member_;
     /**
      * <pre>
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     public java.util.List<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember> getMemberList() {
       return member_;
@@ -456,7 +483,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     public java.util.List<? extends com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder> 
         getMemberOrBuilderList() {
@@ -467,7 +494,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     public int getMemberCount() {
       return member_.size();
@@ -477,7 +504,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember getMember(int index) {
       return member_.get(index);
@@ -487,7 +514,7 @@ public final class GuildProto {
      * 公会成员
      * </pre>
      *
-     * <code>repeated .GuildMember member = 7;</code>
+     * <code>repeated .GuildMember member = 8;</code>
      */
     public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder getMemberOrBuilder(
         int index) {
@@ -523,11 +550,14 @@ public final class GuildProto {
       if (num_ != 0) {
         output.writeInt32(5, num_);
       }
+      if (maxNum_ != 0) {
+        output.writeInt32(6, maxNum_);
+      }
       if (president_ != null) {
-        output.writeMessage(6, getPresident());
+        output.writeMessage(7, getPresident());
       }
       for (int i = 0; i < member_.size(); i++) {
-        output.writeMessage(7, member_.get(i));
+        output.writeMessage(8, member_.get(i));
       }
       unknownFields.writeTo(output);
     }
@@ -556,13 +586,17 @@ public final class GuildProto {
         size += com.google.protobuf.CodedOutputStream
           .computeInt32Size(5, num_);
       }
+      if (maxNum_ != 0) {
+        size += com.google.protobuf.CodedOutputStream
+          .computeInt32Size(6, maxNum_);
+      }
       if (president_ != null) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(6, getPresident());
+          .computeMessageSize(7, getPresident());
       }
       for (int i = 0; i < member_.size(); i++) {
         size += com.google.protobuf.CodedOutputStream
-          .computeMessageSize(7, member_.get(i));
+          .computeMessageSize(8, member_.get(i));
       }
       size += unknownFields.getSerializedSize();
       memoizedSize = size;
@@ -589,6 +623,8 @@ public final class GuildProto {
           != other.getLevel()) return false;
       if (getNum()
           != other.getNum()) return false;
+      if (getMaxNum()
+          != other.getMaxNum()) return false;
       if (hasPresident() != other.hasPresident()) return false;
       if (hasPresident()) {
         if (!getPresident()
@@ -618,6 +654,8 @@ public final class GuildProto {
       hash = (53 * hash) + getLevel();
       hash = (37 * hash) + NUM_FIELD_NUMBER;
       hash = (53 * hash) + getNum();
+      hash = (37 * hash) + MAXNUM_FIELD_NUMBER;
+      hash = (53 * hash) + getMaxNum();
       if (hasPresident()) {
         hash = (37 * hash) + PRESIDENT_FIELD_NUMBER;
         hash = (53 * hash) + getPresident().hashCode();
@@ -770,6 +808,8 @@ public final class GuildProto {
 
         num_ = 0;
 
+        maxNum_ = 0;
+
         if (presidentBuilder_ == null) {
           president_ = null;
         } else {
@@ -814,6 +854,7 @@ public final class GuildProto {
         result.bulletin_ = bulletin_;
         result.level_ = level_;
         result.num_ = num_;
+        result.maxNum_ = maxNum_;
         if (presidentBuilder_ == null) {
           result.president_ = president_;
         } else {
@@ -892,6 +933,9 @@ public final class GuildProto {
         }
         if (other.getNum() != 0) {
           setNum(other.getNum());
+        }
+        if (other.getMaxNum() != 0) {
+          setMaxNum(other.getMaxNum());
         }
         if (other.hasPresident()) {
           mergePresident(other.getPresident());
@@ -1244,6 +1288,44 @@ public final class GuildProto {
         return this;
       }
 
+      private int maxNum_ ;
+      /**
+       * <pre>
+       * 最大人数
+       * </pre>
+       *
+       * <code>int32 maxNum = 6;</code>
+       */
+      public int getMaxNum() {
+        return maxNum_;
+      }
+      /**
+       * <pre>
+       * 最大人数
+       * </pre>
+       *
+       * <code>int32 maxNum = 6;</code>
+       */
+      public Builder setMaxNum(int value) {
+        
+        maxNum_ = value;
+        onChanged();
+        return this;
+      }
+      /**
+       * <pre>
+       * 最大人数
+       * </pre>
+       *
+       * <code>int32 maxNum = 6;</code>
+       */
+      public Builder clearMaxNum() {
+        
+        maxNum_ = 0;
+        onChanged();
+        return this;
+      }
+
       private com.ljh.clientdemo.proto.protoc.RoleProto.Role president_;
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.RoleProto.Role, com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder, com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder> presidentBuilder_;
@@ -1252,7 +1334,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public boolean hasPresident() {
         return presidentBuilder_ != null || president_ != null;
@@ -1262,7 +1344,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role getPresident() {
         if (presidentBuilder_ == null) {
@@ -1276,7 +1358,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public Builder setPresident(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (presidentBuilder_ == null) {
@@ -1296,7 +1378,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public Builder setPresident(
           com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder builderForValue) {
@@ -1314,7 +1396,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public Builder mergePresident(com.ljh.clientdemo.proto.protoc.RoleProto.Role value) {
         if (presidentBuilder_ == null) {
@@ -1336,7 +1418,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public Builder clearPresident() {
         if (presidentBuilder_ == null) {
@@ -1354,7 +1436,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder getPresidentBuilder() {
         
@@ -1366,7 +1448,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       public com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder getPresidentOrBuilder() {
         if (presidentBuilder_ != null) {
@@ -1381,7 +1463,7 @@ public final class GuildProto {
        * 会长信息
        * </pre>
        *
-       * <code>.Role president = 6;</code>
+       * <code>.Role president = 7;</code>
        */
       private com.google.protobuf.SingleFieldBuilderV3<
           com.ljh.clientdemo.proto.protoc.RoleProto.Role, com.ljh.clientdemo.proto.protoc.RoleProto.Role.Builder, com.ljh.clientdemo.proto.protoc.RoleProto.RoleOrBuilder> 
@@ -1414,7 +1496,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public java.util.List<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember> getMemberList() {
         if (memberBuilder_ == null) {
@@ -1428,7 +1510,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public int getMemberCount() {
         if (memberBuilder_ == null) {
@@ -1442,7 +1524,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember getMember(int index) {
         if (memberBuilder_ == null) {
@@ -1456,7 +1538,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder setMember(
           int index, com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember value) {
@@ -1477,7 +1559,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder setMember(
           int index, com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder builderForValue) {
@@ -1495,7 +1577,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder addMember(com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember value) {
         if (memberBuilder_ == null) {
@@ -1515,7 +1597,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder addMember(
           int index, com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember value) {
@@ -1536,7 +1618,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder addMember(
           com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder builderForValue) {
@@ -1554,7 +1636,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder addMember(
           int index, com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder builderForValue) {
@@ -1572,7 +1654,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder addAllMember(
           java.lang.Iterable<? extends com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember> values) {
@@ -1591,7 +1673,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder clearMember() {
         if (memberBuilder_ == null) {
@@ -1608,7 +1690,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public Builder removeMember(int index) {
         if (memberBuilder_ == null) {
@@ -1625,7 +1707,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder getMemberBuilder(
           int index) {
@@ -1636,7 +1718,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder getMemberOrBuilder(
           int index) {
@@ -1650,7 +1732,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public java.util.List<? extends com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMemberOrBuilder> 
            getMemberOrBuilderList() {
@@ -1665,7 +1747,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder addMemberBuilder() {
         return getMemberFieldBuilder().addBuilder(
@@ -1676,7 +1758,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder addMemberBuilder(
           int index) {
@@ -1688,7 +1770,7 @@ public final class GuildProto {
        * 公会成员
        * </pre>
        *
-       * <code>repeated .GuildMember member = 7;</code>
+       * <code>repeated .GuildMember member = 8;</code>
        */
       public java.util.List<com.ljh.clientdemo.proto.protoc.GuildMemberProto.GuildMember.Builder> 
            getMemberBuilderList() {
@@ -1776,12 +1858,12 @@ public final class GuildProto {
   static {
     java.lang.String[] descriptorData = {
       "\n\013Guild.proto\032\nRole.proto\032\021GuildMember.p" +
-      "roto\"\214\001\n\005Guild\022\017\n\007guildId\030\001 \001(\003\022\014\n\004name\030" +
+      "roto\"\234\001\n\005Guild\022\017\n\007guildId\030\001 \001(\003\022\014\n\004name\030" +
       "\002 \001(\t\022\020\n\010bulletin\030\003 \001(\t\022\r\n\005level\030\004 \001(\005\022\013" +
-      "\n\003num\030\005 \001(\005\022\030\n\tpresident\030\006 \001(\0132\005.Role\022\034\n" +
-      "\006member\030\007 \003(\0132\014.GuildMemberB-\n\037com.ljh.c" +
-      "lientdemo.proto.protocB\nGuildProtob\006prot" +
-      "o3"
+      "\n\003num\030\005 \001(\005\022\016\n\006maxNum\030\006 \001(\005\022\030\n\tpresident" +
+      "\030\007 \001(\0132\005.Role\022\034\n\006member\030\010 \003(\0132\014.GuildMem" +
+      "berB-\n\037com.ljh.clientdemo.proto.protocB\n" +
+      "GuildProtob\006proto3"
     };
     descriptor = com.google.protobuf.Descriptors.FileDescriptor
       .internalBuildGeneratedFileFrom(descriptorData,
@@ -1794,7 +1876,7 @@ public final class GuildProto {
     internal_static_Guild_fieldAccessorTable = new
       com.google.protobuf.GeneratedMessageV3.FieldAccessorTable(
         internal_static_Guild_descriptor,
-        new java.lang.String[] { "GuildId", "Name", "Bulletin", "Level", "Num", "President", "Member", });
+        new java.lang.String[] { "GuildId", "Name", "Bulletin", "Level", "Num", "MaxNum", "President", "Member", });
     com.ljh.clientdemo.proto.protoc.RoleProto.getDescriptor();
     com.ljh.clientdemo.proto.protoc.GuildMemberProto.getDescriptor();
   }

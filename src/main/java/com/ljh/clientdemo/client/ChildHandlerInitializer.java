@@ -52,5 +52,7 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new RoleHandler());
 
         pipeline.addLast(new FaceTransHandler());
+
+        pipeline.addLast(new GuildHandler());
     }
 }

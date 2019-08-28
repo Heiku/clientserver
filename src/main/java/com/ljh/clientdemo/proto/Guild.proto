@@ -14,7 +14,8 @@ message Guild{
     string bulletin = 3;        // 公告
     int32 level = 4;            // 等级
     int32 num = 5;              // 人数
-    Role president = 6;         // 会长信息
-    repeated GuildMember member = 7;        // 公会成员
+    int32 maxNum = 6;           // 最大人数
+    Role president = 7;         // 会长信息
+    repeated GuildMember member = 8;        // 公会成员
 }
 

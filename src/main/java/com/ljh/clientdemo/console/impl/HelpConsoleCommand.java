@@ -101,10 +101,12 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t establish: 建立公会\n");
         sb.append("\t applyGuild: 申请加入公会\n");
         sb.append("\t applyAll: 查看所有的申请列表\n");
-        sb.append("\t approval: 审批公会申请\n");
+        sb.append("\t approvalYes: 同意审批公会申请\n");
+        sb.append("\t approvalNo: 拒绝审批公会申请\n");
         sb.append("\t modifyAnn: 修改公告\n");
         sb.append("\t give: 赋予职位\n" );
         sb.append("\t donate: 捐献公会物品\n");
+        sb.append("\t takeOut: 取出公会物品\n");
         sb.append("\t kickOut: 踢出公会\n");
         sb.append("\t exitGuild: 退出公会\n");
 
