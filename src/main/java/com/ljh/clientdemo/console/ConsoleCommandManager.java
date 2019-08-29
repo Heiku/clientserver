@@ -34,6 +34,7 @@ import com.ljh.clientdemo.console.impl.role.RoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.role.RoleTypeConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
+import com.ljh.clientdemo.console.impl.trade.*;
 import com.ljh.clientdemo.console.impl.user.StateConsoleCommand;
 import com.ljh.clientdemo.console.impl.others.TalkEntityConsoleCommand;
 import com.ljh.clientdemo.console.impl.spell.LearnSpellConsoleCommand;
@@ -155,6 +156,14 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("takeOut", new TakeOutConsoleCommand());
         consoleCommandMap.put("kickOut", new KickOutConsoleCommand());
         consoleCommandMap.put("exitGuild", new ExitGuildConsoleCommand());
+
+        // Trading
+        consoleCommandMap.put("fixedPriceAll", new FixedPriceAllConsoleCommand());
+        consoleCommandMap.put("auctionAll", new AuctionAllConsoleCommand());
+        consoleCommandMap.put("putGoods", new PutGoodsConsoleCommand());
+        consoleCommandMap.put("buyFixedPrice", new BuyFixedPriceConsoleCommand());
+        consoleCommandMap.put("buyAuction", new BuyAuctionConsoleCommand());
+        consoleCommandMap.put("outOf", new OutOfConsoleCommand());
 
         consoleCommandMap.put("quit", new ExitConsoleCommand());
 

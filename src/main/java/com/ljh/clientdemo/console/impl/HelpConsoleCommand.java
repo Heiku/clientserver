@@ -110,6 +110,14 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t kickOut: 踢出公会\n");
         sb.append("\t exitGuild: 退出公会\n");
 
+        sb.append("交易行：\n");
+        sb.append("\t tradeState: 查看当前的交易状态\n");
+        sb.append("\t fixedPriceAll: 查看所有一口价的拍卖物品\n");
+        sb.append("\t auctionAll: 查看所有正在拍卖的物品\n");
+        sb.append("\t putGoods: 上架商品\n");
+        sb.append("\t buyFixedPrice: 购买一口价的物品\n");
+        sb.append("\t buyAuction: 进行物品的拍卖\n");
+        sb.append("\t outOf: 将物品进行下架处理\n");
 
         sb.append("\n\t quit：退出当前游戏\n");
 
