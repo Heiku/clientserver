@@ -158,6 +158,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("exitGuild", new ExitGuildConsoleCommand());
 
         // Trading
+        consoleCommandMap.put("tradeState", new TradeStateConsoleCommand());
         consoleCommandMap.put("fixedPriceAll", new FixedPriceAllConsoleCommand());
         consoleCommandMap.put("auctionAll", new AuctionAllConsoleCommand());
         consoleCommandMap.put("putGoods", new PutGoodsConsoleCommand());
