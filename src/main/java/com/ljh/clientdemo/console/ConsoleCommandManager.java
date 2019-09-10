@@ -34,6 +34,7 @@ import com.ljh.clientdemo.console.impl.role.RoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.role.RoleTypeConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
+import com.ljh.clientdemo.console.impl.task.*;
 import com.ljh.clientdemo.console.impl.trade.*;
 import com.ljh.clientdemo.console.impl.user.StateConsoleCommand;
 import com.ljh.clientdemo.console.impl.others.TalkEntityConsoleCommand;
@@ -165,6 +166,13 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("buyFixedPrice", new BuyFixedPriceConsoleCommand());
         consoleCommandMap.put("buyAuction", new BuyAuctionConsoleCommand());
         consoleCommandMap.put("outOf", new OutOfConsoleCommand());
+
+        // task
+        consoleCommandMap.put("taskAll", new TaskAllConsoleCommand());
+        consoleCommandMap.put("taskState", new TaskStateConsoleCommand());
+        consoleCommandMap.put("taskReceive", new TaskReceiveConsoleCommand());
+        consoleCommandMap.put("taskGiveUp", new TaskGiveUpConsoleCommand());
+        consoleCommandMap.put("taskSubmit", new TaskSubmitConsoleCommand());
 
         consoleCommandMap.put("quit", new ExitConsoleCommand());
 

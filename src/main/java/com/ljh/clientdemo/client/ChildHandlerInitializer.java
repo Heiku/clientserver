@@ -56,5 +56,7 @@ public class ChildHandlerInitializer extends ChannelInitializer<SocketChannel> {
         pipeline.addLast(new GuildHandler());
 
         pipeline.addLast(new TradeHandler());
+
+        pipeline.addLast(new TaskHandler());
     }
 }

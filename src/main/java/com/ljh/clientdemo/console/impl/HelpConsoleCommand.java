@@ -119,6 +119,13 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t buyAuction: 进行物品的拍卖\n");
         sb.append("\t outOf: 将物品进行下架处理\n");
 
+        sb.append("任务：\n");
+        sb.append("\t taskAll: 查看所有的任务列表\n");
+        sb.append("\t taskState: 查看当前任务的状态信息\n");
+        sb.append("\t taskReceive: 接受任务\n");
+        sb.append("\t taskSubmit: 提交任务\n");
+        sb.append("\t taskGiveUp: 放弃任务\n");
+
         sb.append("\n\t quit：退出当前游戏\n");
 
         System.out.println(sb.toString());
