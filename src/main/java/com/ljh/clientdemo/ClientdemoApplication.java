@@ -24,20 +24,10 @@ public class ClientdemoApplication {
         SpringApplication.run(ClientdemoApplication.class, args);
         ConsoleCommandManager consoleCommandManager = new ConsoleCommandManager();
 
-        System.out.println("Welcome to The Legend of Zelda");
+        System.out.println("Welcome to The Legend of ZhaZha");
         System.out.println("input 【help】 and press Enter can get what you want");
         Scanner scanner = new Scanner(System.in);
         while (scanner.hasNext()){
-            /*// 判断channel中是否属于登录状态
-            if (LocalUserData.getUserId() <= 0) {
-
-                // 如果为检测到channel中的session，那么调用登录控制台
-                register.exec(scanner, nettyClient.getChannel());
-            } else {
-
-
-            }*/
-            // 否则，根据指令调用相应的控制台
             consoleCommandManager.exec(scanner, nettyClient.getChannel());
         }
     }

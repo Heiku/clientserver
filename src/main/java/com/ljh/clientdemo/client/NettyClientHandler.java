@@ -1,5 +1,6 @@
 package com.ljh.clientdemo.client;
 
+import com.ljh.clientdemo.command.ResultCode;
 import com.ljh.clientdemo.local.LocalUserData;
 import com.ljh.clientdemo.proto.protoc.MessageBase;
 import com.ljh.clientdemo.utils.SessionUtil;
@@ -22,7 +23,11 @@ public class NettyClientHandler extends SimpleChannelInboundHandler<MessageBase.
      */
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MessageBase.Message message) throws Exception {
-        //log.info("客户端收到消息：{}", message.toString());
+        if (message.getResult() != ResultCode.SUCCESS){
+            System.out.println(message.getContent());
+            return;
+        }
+
         System.out.println(message.getContent());
     }
 

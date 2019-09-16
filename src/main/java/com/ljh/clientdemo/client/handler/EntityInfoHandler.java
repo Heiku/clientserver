@@ -67,11 +67,10 @@ public class EntityInfoHandler extends SimpleChannelInboundHandler<MsgEntityInfo
             String name = creep.getName();
             String type = EntityType.getContentFromCode(creep.getType()).getContent();
             String level = String.valueOf(creep.getLevel());
-            String num = String.valueOf(creep.getNum());
             String hp = String.valueOf(creep.getHp());
             String damage = String.valueOf(creep.getDamage());
 
-            sb.append("id: " + creep.getCreepId() + "名称：" + name + " 种类：" + type + " 数量：" + num + " 等级：" + level + " 血量：" + hp + " 攻击力：" + damage + "\n");
+            sb.append("id: " + creep.getId() + " 名称：" + name + " 种类：" + type + " 等级：" + level + " 血量：" + hp + " 攻击力：" + damage + "\n");
         }
 
         System.out.println(sb.toString());

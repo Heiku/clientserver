@@ -89,9 +89,8 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("learn", new LearnSpellConsoleCommand());
 
         // attack
-        consoleCommandMap.put("attackc", new AttackCreepConsoleCommand());
-        consoleCommandMap.put("spc", new AttackCreepSpellConsoleCommand());
-        consoleCommandMap.put("stopc", new StopAttackCreepConsoleCommand());
+        consoleCommandMap.put("spCreep", new AttackCreepSpellConsoleCommand());
+        consoleCommandMap.put("stopCreep", new StopAttackCreepConsoleCommand());
 
         // bag
         consoleCommandMap.put("bag", new BagAllConsoleCommand());
@@ -100,15 +99,15 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // equip
         consoleCommandMap.put("equip", new EquipAllConsoleCommand());
         consoleCommandMap.put("put", new EquipPutConsoleCommand());
-        consoleCommandMap.put("takeoff", new EquipTakeOffConsoleCommand());
+        consoleCommandMap.put("takeOff", new EquipTakeOffConsoleCommand());
         consoleCommandMap.put("fix", new EquipFixConsoleCommand());
 
         // duplicate boss
         consoleCommandMap.put("duplicate", new DuplicateConsoleCommand());
         consoleCommandMap.put("enter", new EnterDuplicateConsoleCommand());
-        consoleCommandMap.put("spb", new SpellToBossConsoleCommand());
-        consoleCommandMap.put("stopb", new StopDuplicateConsoleCommand());
-        consoleCommandMap.put("leave", new LeaveDuplicateConsoleCommand());
+        consoleCommandMap.put("spBoss", new SpellToBossConsoleCommand());
+        consoleCommandMap.put("stopBoss", new StopDuplicateConsoleCommand());
+        consoleCommandMap.put("leaveBoss", new LeaveDuplicateConsoleCommand());
 
         // mall
         consoleCommandMap.put("mall", new MallAllConsoleCommand());
@@ -116,7 +115,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
 
         // chat
         consoleCommandMap.put("chat", new ChatRoleConsoleCommand());
-        consoleCommandMap.put("chatg", new ChatGroupConsoleCommand());
+        consoleCommandMap.put("chatGroup", new ChatGroupConsoleCommand());
 
         // email
         consoleCommandMap.put("email", new EmailAllConsoleCommand());
@@ -124,12 +123,12 @@ public class ConsoleCommandManager implements ConsoleCommand {
 
         // pk
         consoleCommandMap.put("pk", new PKConsoleCommand());
-        consoleCommandMap.put("ac", new AcceptPKConsoleCommand());
-        consoleCommandMap.put("spr", new SpellRoleConsoleCommand());
+        consoleCommandMap.put("acceptPK", new AcceptPKConsoleCommand());
+        consoleCommandMap.put("spPK", new SpellRoleConsoleCommand());
         consoleCommandMap.put("escape", new EscapeConsoleCommand());
 
         // group
-        consoleCommandMap.put("gs", new StateGroupConsoleCommand());
+        consoleCommandMap.put("groupState", new StateGroupConsoleCommand());
         consoleCommandMap.put("group", new InviteGroupConsoleCommand());
         consoleCommandMap.put("join", new JoinGroupConsoleCommand());
         consoleCommandMap.put("egroup", new ExitGroupConsoleCommand());
@@ -141,7 +140,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("ask", new AskTransConsoleCommand());
         consoleCommandMap.put("accept", new AcceptTransConsoleCommand());
         consoleCommandMap.put("refuse", new RefuseTransConsoleCommand());
-        consoleCommandMap.put("lt", new LeaveTransConsoleCommand());
+        consoleCommandMap.put("leaveTrade", new LeaveTransConsoleCommand());
 
         // guild
         consoleCommandMap.put("guild", new GuildConsoleCommand());

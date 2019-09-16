@@ -32,8 +32,6 @@ public class TradeHandler extends SimpleChannelInboundHandler<MsgTradeProto.Resp
                 return;
             }
 
-
-
             sb.append("当前正在参与的交易如下：\n\n");
             tradeList.forEach(t -> {
                 String name = "";
