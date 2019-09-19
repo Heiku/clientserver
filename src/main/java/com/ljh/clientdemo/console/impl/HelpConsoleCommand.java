@@ -17,6 +17,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("用户相关：\n");
         sb.append("\t login：登录\n");
         sb.append("\t register：注册\n");
+        sb.append("\t roleList：查看玩家当前的角色列表\n");
         sb.append("\t state：角色绑定\n");
 
         sb.append("角色相关：\n");
@@ -81,7 +82,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
         sb.append("\t groupState: 查看组队状态\n");
         sb.append("\t group: 发起组队邀请\n");
         sb.append("\t join: 接受组队的邀请，加入队伍\n");
-        sb.append("\t exit: 退出队伍\n");
+        sb.append("\t exitGroup: 退出队伍\n");
 
         sb.append("面对面交易：\n");
         sb.append("\t initiate: 交易发起\n");

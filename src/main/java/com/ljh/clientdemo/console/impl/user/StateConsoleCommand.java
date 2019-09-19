@@ -2,6 +2,7 @@ package com.ljh.clientdemo.console.impl.user;
 
 import com.ljh.clientdemo.console.ConsoleCommand;
 import com.ljh.clientdemo.local.LocalUserData;
+import com.ljh.clientdemo.proto.protoc.MsgRoleProto;
 import com.ljh.clientdemo.proto.protoc.MsgUserInfoProto;
 import io.netty.channel.Channel;
 
@@ -21,12 +22,15 @@ public class StateConsoleCommand implements ConsoleCommand {
             return;
         }
 
-        MsgUserInfoProto.RequestUserInfo requestUserInfo = MsgUserInfoProto.RequestUserInfo.newBuilder()
-                .setType(MsgUserInfoProto.RequestType.STATE)
-                .setRequestId(UUID.randomUUID().toString())
-                .setUserId(userId)
-                .build();
+        System.out.println("请输入你要登录的角色id：");
+        long roleId = scanner.nextLong();
 
-        channel.writeAndFlush(requestUserInfo);
+
+        MsgRoleProto.RequestRole req = MsgRoleProto.RequestRole.newBuilder()
+                .setType(MsgRoleProto.RequestType.ROLE_STATE)
+                .setUserId(userId)
+                .setRoleId(roleId)
+                .build();
+        channel.writeAndFlush(req);
     }
 }

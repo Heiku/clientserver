@@ -31,6 +31,7 @@ import com.ljh.clientdemo.console.impl.pk.PKConsoleCommand;
 import com.ljh.clientdemo.console.impl.pk.SpellRoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.role.CreateRoleConsoleCommand;
 import com.ljh.clientdemo.console.impl.role.RoleConsoleCommand;
+import com.ljh.clientdemo.console.impl.role.RoleListConsoleCommand;
 import com.ljh.clientdemo.console.impl.role.RoleTypeConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.MoveConsoleCommand;
 import com.ljh.clientdemo.console.impl.site.SiteConsoleCommand;
@@ -70,6 +71,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("register", new RegisterConsoleCommand());
 
         // role
+        consoleCommandMap.put("roleList", new RoleListConsoleCommand());
         consoleCommandMap.put("role", new RoleConsoleCommand());
         consoleCommandMap.put("rt", new RoleTypeConsoleCommand());
         consoleCommandMap.put("create", new CreateRoleConsoleCommand());
@@ -131,7 +133,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         consoleCommandMap.put("groupState", new StateGroupConsoleCommand());
         consoleCommandMap.put("group", new InviteGroupConsoleCommand());
         consoleCommandMap.put("join", new JoinGroupConsoleCommand());
-        consoleCommandMap.put("egroup", new ExitGroupConsoleCommand());
+        consoleCommandMap.put("exitGroup", new ExitGroupConsoleCommand());
 
         // faceTrans
         consoleCommandMap.put("initiate", new InitiateTransConsoleCommand());

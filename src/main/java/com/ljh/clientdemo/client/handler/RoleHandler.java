@@ -20,33 +20,48 @@ public class RoleHandler extends SimpleChannelInboundHandler<MsgRoleProto.Respon
 
     @Override
     protected void channelRead0(ChannelHandlerContext ctx, MsgRoleProto.ResponseRole resp) throws Exception {
-        if (resp.getResult() != ResultCode.SUCCESS){
+        if (resp.getResult() != ResultCode.SUCCESS) {
             System.out.println(resp.getContent());
             return;
         }
 
         StringBuilder sb = new StringBuilder();
-        if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_VALUE){
+        if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_VALUE) {
             RoleProto.Role r = resp.getRole();
 
             sb.append("当前的角色信息如下：\n\n");
-            sb.append("id：" + r.getRoleId() + " 名称：" + r.getName() + " Hp：" + r.getHp() + " Mp：" + r.getMp()  +
-                    " 等级： " + r.getLevel() + " 金币：" + r.getGold() +  " 荣誉值：" + r.getHonor() +" \n");
+            sb.append("id：" + r.getRoleId() + " 名称：" + r.getName() + " Hp：" + r.getHp() + " Mp：" + r.getMp() +
+                    " 等级： " + r.getLevel() + " 金币：" + r.getGold() + " 荣誉值：" + r.getHonor() + " \n");
 
             System.out.println(sb.toString());
-        }
-
-        else if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_TYPE_VALUE){
+        } else if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_TYPE_VALUE) {
             List<RoleInitProto.RoleInit> roleInits = resp.getRoleInitList();
 
             sb.append("角色职业如下：\n\n");
             roleInits.forEach(r -> {
                 sb.append("类型：" + r.getType() + " 名称：" + EntityType.getContentFromCode(r.getType()).getContent() + " Hp：" + r.getHp() +
-                        " Mp："+ r.getMp() + " 职业描述：" + r.getDesc() + "\n");
+                        " Mp：" + r.getMp() + " 职业描述：" + r.getDesc() + "\n");
             });
             System.out.println(sb.toString());
-        }else {
+
+
+        } else if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_RELIVE_VALUE) {
             System.out.println(resp.getContent());
+
+            RoleProto.Role r = resp.getRole();
+            System.out.println("当前的角色为：" + r.getName() + "血量：" + r.getHp() + "\n");
+
+
+        }else if (resp.getTypeValue() == MsgRoleProto.RequestType.ROLE_LIST_VALUE) {
+            List<RoleProto.Role> roles = resp.getHasRoleList();
+
+            roles.forEach(r ->
+                    sb.append("id: " + r.getRoleId() + " 名称：" + r.getName() + " 等级：" + r.getLevel() + " 金币：" + r.getGold() + "\n")
+                    );
+
+            System.out.println(sb.toString());
         }
+        else
+            System.out.println(resp.getContent());
     }
 }
