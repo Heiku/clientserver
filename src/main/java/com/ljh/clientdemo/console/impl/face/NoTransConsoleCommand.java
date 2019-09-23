@@ -15,13 +15,17 @@ public class NoTransConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        long tmpTransId = scanner.nextLong();
+        try {
+            long tmpTransId = scanner.nextLong();
 
-        MsgFaceTransProto.RequestFaceTrans req = MsgFaceTransProto.RequestFaceTrans.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setTmpId(tmpTransId)
-                .setType(MsgFaceTransProto.RequestType.NO_TRANS)
-                .build();
-        channel.writeAndFlush(req);
+            MsgFaceTransProto.RequestFaceTrans req = MsgFaceTransProto.RequestFaceTrans.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setTmpId(tmpTransId)
+                    .setType(MsgFaceTransProto.RequestType.NO_TRANS)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 }

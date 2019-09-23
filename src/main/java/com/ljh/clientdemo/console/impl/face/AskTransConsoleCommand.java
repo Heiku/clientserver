@@ -15,22 +15,26 @@ public class AskTransConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要交易的物品id：");
-        long goodsId = scanner.nextLong();
+        try {
+            System.out.println("请输入你要交易的物品id：");
+            long goodsId = scanner.nextLong();
 
-        System.out.println("请输入你要交易的数量：");
-        int num = scanner.nextInt();
+            System.out.println("请输入你要交易的数量：");
+            int num = scanner.nextInt();
 
-        System.out.println("输入要交易的金额：");
-        int amount = scanner.nextInt();
+            System.out.println("输入要交易的金额：");
+            int amount = scanner.nextInt();
 
-        MsgFaceTransProto.RequestFaceTrans req = MsgFaceTransProto.RequestFaceTrans.newBuilder()
-                .setType(MsgFaceTransProto.RequestType.ASK_TRANS)
-                .setUserId(LocalUserData.getUserId())
-                .setGoodsId(goodsId)
-                .setNum(num)
-                .setAmount(amount)
-                .build();
-        channel.writeAndFlush(req);
+            MsgFaceTransProto.RequestFaceTrans req = MsgFaceTransProto.RequestFaceTrans.newBuilder()
+                    .setType(MsgFaceTransProto.RequestType.ASK_TRANS)
+                    .setUserId(LocalUserData.getUserId())
+                    .setGoodsId(goodsId)
+                    .setNum(num)
+                    .setAmount(amount)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

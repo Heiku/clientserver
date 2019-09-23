@@ -15,14 +15,18 @@ public class ModifyANnConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你新的公告内容：");
-        String bulletin = scanner.next();
+        try {
+            System.out.println("请输入你新的公告内容：");
+            String bulletin = scanner.next();
 
-        MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
-                .setType(MsgGuildProto.RequestType.MODIFY_ANN)
-                .setUserId(LocalUserData.getUserId())
-                .setBulletin(bulletin)
-                .build();
-        channel.writeAndFlush(req);
+            MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
+                    .setType(MsgGuildProto.RequestType.MODIFY_ANN)
+                    .setUserId(LocalUserData.getUserId())
+                    .setBulletin(bulletin)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

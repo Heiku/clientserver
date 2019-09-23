@@ -15,15 +15,19 @@ public class TaskReceiveConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要接受的任务id：");
-        long taskId = scanner.nextLong();
+        try {
+            System.out.println("请输入你要接受的任务id：");
+            long taskId = scanner.nextLong();
 
 
-        MsgTaskProto.RequestTask req = MsgTaskProto.RequestTask.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setTaskId(taskId)
-                .setType(MsgTaskProto.RequestType.TASK_RECEIVE)
-                .build();
-        channel.writeAndFlush(req);
+            MsgTaskProto.RequestTask req = MsgTaskProto.RequestTask.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setTaskId(taskId)
+                    .setType(MsgTaskProto.RequestType.TASK_RECEIVE)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

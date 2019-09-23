@@ -15,14 +15,18 @@ public class KickOutConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要踢出公会的玩家id：");
-        long roleId = scanner.nextLong();
+        try {
+            System.out.println("请输入你要踢出公会的玩家id：");
+            long roleId = scanner.nextLong();
 
-        MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
-                .setType(MsgGuildProto.RequestType.KICK_OUT)
-                .setUserId(LocalUserData.getUserId())
-                .setRoleId(roleId)
-                .build();
-        channel.writeAndFlush(req);
+            MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
+                    .setType(MsgGuildProto.RequestType.KICK_OUT)
+                    .setUserId(LocalUserData.getUserId())
+                    .setRoleId(roleId)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

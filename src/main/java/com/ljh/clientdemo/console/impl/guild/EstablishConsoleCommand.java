@@ -15,18 +15,22 @@ public class EstablishConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要建立的公会名称：");
-        String name = scanner.next();
+        try {
+            System.out.println("请输入你要建立的公会名称：");
+            String name = scanner.next();
 
-        System.out.println("请输入公会的公告：");
-        String bulletin = scanner.next();
+            System.out.println("请输入公会的公告：");
+            String bulletin = scanner.next();
 
-        MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
-                .setType(MsgGuildProto.RequestType.ESTABLISH)
-                .setUserId(LocalUserData.getUserId())
-                .setGuildName(name)
-                .setBulletin(bulletin)
-                .build();
-        channel.writeAndFlush(req);
+            MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
+                    .setType(MsgGuildProto.RequestType.ESTABLISH)
+                    .setUserId(LocalUserData.getUserId())
+                    .setGuildName(name)
+                    .setBulletin(bulletin)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

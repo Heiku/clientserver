@@ -15,14 +15,18 @@ public class TaskSubmitConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要提交的任务id：");
-        long taskId = scanner.nextLong();
+        try {
+            System.out.println("请输入你要提交的任务id：");
+            long taskId = scanner.nextLong();
 
-        MsgTaskProto.RequestTask req = MsgTaskProto.RequestTask.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setType(MsgTaskProto.RequestType.TASK_SUBMIT)
-                .setTaskId(taskId)
-                .build();
-        channel.writeAndFlush(req);
+            MsgTaskProto.RequestTask req = MsgTaskProto.RequestTask.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setType(MsgTaskProto.RequestType.TASK_SUBMIT)
+                    .setTaskId(taskId)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

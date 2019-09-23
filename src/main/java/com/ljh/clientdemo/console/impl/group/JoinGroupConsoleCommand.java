@@ -18,13 +18,17 @@ public class JoinGroupConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
 
-        long groupId = scanner.nextLong();
+        try {
+            long groupId = scanner.nextLong();
 
-        MsgGroupProto.RequestGroup req = MsgGroupProto.RequestGroup.newBuilder()
-                .setUserId(LocalUserData.getUserId())
-                .setType(MsgGroupProto.RequestType.JOIN)
-                .setGroupId(groupId)
-                .build();
-        channel.writeAndFlush(req);
+            MsgGroupProto.RequestGroup req = MsgGroupProto.RequestGroup.newBuilder()
+                    .setUserId(LocalUserData.getUserId())
+                    .setType(MsgGroupProto.RequestType.JOIN)
+                    .setGroupId(groupId)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }

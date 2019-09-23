@@ -18,7 +18,12 @@ public class ChatGroupConsoleCommand implements ConsoleCommand {
         System.out.println("请输入你向全服发送的消息：");
 
         scanner.nextLine();
-        String content = scanner.nextLine();
+        String content = null;
+        try {
+            content = scanner.nextLine();
+        } catch (Exception e){
+            System.out.println("输入参数有误！");
+        }
 
         MsgChatProto.RequestChat request = MsgChatProto.RequestChat.newBuilder()
                 .setUserId(LocalUserData.getUserId())

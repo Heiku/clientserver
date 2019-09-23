@@ -15,18 +15,22 @@ public class TakeOutConsoleCommand implements ConsoleCommand {
 
     @Override
     public void exec(Scanner scanner, Channel channel) {
-        System.out.println("请输入你要取出的物品id：");
-        long goodsId = scanner.nextLong();
+        try {
+            System.out.println("请输入你要取出的物品id：");
+            long goodsId = scanner.nextLong();
 
-        System.out.println("请输入你要取出的数量：");
-        int num = scanner.nextInt();
+            System.out.println("请输入你要取出的数量：");
+            int num = scanner.nextInt();
 
-        MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
-                .setType(MsgGuildProto.RequestType.TAKE_OUT)
-                .setUserId(LocalUserData.getUserId())
-                .setGoodsId(goodsId)
-                .setNum(num)
-                .build();
-        channel.writeAndFlush(req);
+            MsgGuildProto.RequestGuild req = MsgGuildProto.RequestGuild.newBuilder()
+                    .setType(MsgGuildProto.RequestType.TAKE_OUT)
+                    .setUserId(LocalUserData.getUserId())
+                    .setGoodsId(goodsId)
+                    .setNum(num)
+                    .build();
+            channel.writeAndFlush(req);
+        } catch (Exception e) {
+            System.out.println("输入参数有误， 请重新输入！\n");
+        }
     }
 }
