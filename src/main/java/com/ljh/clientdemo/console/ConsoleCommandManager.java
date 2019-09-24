@@ -73,7 +73,7 @@ public class ConsoleCommandManager implements ConsoleCommand {
         // role
         consoleCommandMap.put("roleList", new RoleListConsoleCommand());
         consoleCommandMap.put("role", new RoleConsoleCommand());
-        consoleCommandMap.put("rt", new RoleTypeConsoleCommand());
+        consoleCommandMap.put("roleType", new RoleTypeConsoleCommand());
         consoleCommandMap.put("create", new CreateRoleConsoleCommand());
 
         // site

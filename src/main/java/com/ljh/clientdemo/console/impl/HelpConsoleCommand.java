@@ -22,7 +22,7 @@ public class HelpConsoleCommand implements ConsoleCommand {
 
         sb.append("角色相关：\n");
         sb.append("\t role: 查看当前的角色状态\n");
-        sb.append("\t rt: 展示所有的角色类型\n");
+        sb.append("\t roleType: 展示所有的角色类型\n");
         sb.append("\t create: 创建对应的玩家角色信息\n");
 
         sb.append("场景：\n");
