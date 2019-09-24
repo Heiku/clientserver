@@ -39,5 +39,13 @@ public class PKHandler extends SimpleChannelInboundHandler<MsgPKProto.ResponsePK
 
             System.out.println(sb.toString());
         }
+
+        else if (resp.getType().equals(MsgPKProto.RequestType.SPR)){
+            System.out.println(resp.getContent());
+
+            RoleProto.Role role = resp.getOpponent();
+            sb.append("\n【pk中的玩家】 id: " + role.getRoleId() + " 名称: " + role.getName() + " HP: " + role.getHp());
+            System.out.println(sb.toString());
+        }
     }
 }

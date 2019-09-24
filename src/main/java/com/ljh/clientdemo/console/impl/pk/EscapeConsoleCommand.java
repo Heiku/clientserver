@@ -18,6 +18,7 @@ public class EscapeConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         try {
+            System.out.println("请输入你要离开的pk的玩家id：");
             long roleId = scanner.nextLong();
 
             MsgPKProto.RequestPK requestPK = MsgPKProto.RequestPK.newBuilder()
