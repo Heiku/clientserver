@@ -32,7 +32,7 @@ public class ItemHandler extends SimpleChannelInboundHandler<MsgItemProto.Respon
 
             sb.append("当前的背包中的装备如下：\n");
             for (EquipProto.Equip equip : equips) {
-                sb.append("id: " + equip.getEquipId() + " 名称：" + equip.getName() + " 部位： " + PartType.getContentByCode(equip.getPart()) +
+                sb.append("id: " + equip.getId() + " 装备编号：" + equip.getEquipId() +  " 名称：" + equip.getName() + " 部位： " + PartType.getContentByCode(equip.getPart()) +
                         " 类型：" + EntityType.getContentFromCode(equip.getType()).getContent() + " 伤害加成：" + equip.getAUp() +
                         " 技能加成：" + equip.getSpUp() + " 血量加成：" + equip.getHpUp() + " \n");
             }

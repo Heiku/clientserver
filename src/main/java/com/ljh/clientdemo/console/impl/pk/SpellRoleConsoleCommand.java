@@ -18,7 +18,10 @@ public class SpellRoleConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         try {
+            System.out.println("请输入你要施放的技能id：");
             int spellId = scanner.nextInt();
+
+            System.out.println("请输入你压迫挑战的而玩家id：");
             long roleId = scanner.nextLong();
 
             MsgPKProto.RequestPK req = MsgPKProto.RequestPK.newBuilder()

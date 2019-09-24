@@ -16,7 +16,7 @@ public class TaskSubmitConsoleCommand implements ConsoleCommand {
     @Override
     public void exec(Scanner scanner, Channel channel) {
         try {
-            System.out.println("请输入你要提交的任务id：");
+            System.out.println("请输入你要提交的taskId：");
             long taskId = scanner.nextLong();
 
             MsgTaskProto.RequestTask req = MsgTaskProto.RequestTask.newBuilder()
